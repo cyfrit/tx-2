@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content">
+<meta name="theme-color" content="#1d2421">
+<title>TX-2 · Lincoln Laboratory</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+  <header class="bar">
+    <div class="brand"><span class="plate">TX-2</span><span class="sub">MIT LINCOLN LABORATORY</span></div>
+    <div class="status">
+      <span class="lamp" id="run-lamp" title="RUN"></span><span id="run-text">POWER</span>
+      <span class="readout" id="where">K 00 · P 000000</span>
+    </div>
+    <div class="bar-actions">
+      <button class="key" id="pause" title="Emulator pause/resume">❚❚</button>
+      <button class="key" id="step" title="Emulator single-instruction step">STEP</button>
+      <button class="key red" id="power" title="Power-on reset: clear memory">POWER</button>
+    </div>
+  </header>
+  <main class="deck">
+    <section class="scope-bay">
+      <div class="bezel">
+        <div class="crt" id="crt">
+          <canvas id="glow" width="1024" height="1024"></canvas>
+          <canvas id="beam" width="1024" height="1024"></canvas>
+          <canvas id="overlay" width="1024" height="1024"></canvas>
+          <div class="glass"></div>
+          <div class="boot" id="boot">Loading WebAssembly TX-2…</div>
+        </div>
+      </div>
+      <div class="scope-strip">
+        <button class="key small" id="pen-toggle">Light pen ▲</button>
+        <span class="lamp small" id="pen-lamp" title="Light pen detected a spot"></span>
+        <span class="readout small" id="pen-pos">X +0 Y +0</span>
+        <span class="spacer"></span>
+        <button class="key small" id="camera" title="Camera: save the current frame">CAMERA</button>
+      </div>
+    </section>
+    <section class="panel">
+      <nav class="tabs" id="tabs"></nav>
+      <div class="pages" id="pages"></div>
+    </section>
+  </main>
+</div>
+<div class="toast" id="toast"></div>
+<script type="module" src="main.js"></script>
+</body>
+</html>

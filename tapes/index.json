@@ -1,0 +1,44 @@
+[
+  {
+    "id": "hello",
+    "title": "HELLO, WORLD",
+    "tsp": "377750",
+    "kind": "Modern example",
+    "note": "Printing program assembled with this project's M4 assembler. Lincoln Writer prints three lines of HELLO, WORLD.",
+    "file": "tapes/hello.tape",
+    "lines": 294,
+    "sha256": "c242b8dcca0e35709fe97c04474a65bbb46d2ba979776a483c26bf8fd9ce5098"
+  },
+  {
+    "id": "display-demo",
+    "title": "Display and light-pen diagnostic",
+    "tsp": "377750",
+    "kind": "Modern example",
+    "note": "Draws four points on the CRT. Sequence 55 increments a counter when the light pen detects a bright point.",
+    "file": "tapes/display-demo.tape",
+    "lines": 276,
+    "sha256": "ef72051f16b1ecd229b168e38fc10d856d2878900e200e1339ec1808395b071a"
+  },
+  {
+    "id": "sketchpad",
+    "title": "Sketchpad · 1963",
+    "tsp": "377750",
+    "kind": "Historical program reconstructed from listings",
+    "template": "sketchpad",
+    "suppress": "200",
+    "note": "Ivan Sutherland's original program, transcribed and reconstructed from CHM listings. Changes are recorded individually in manifest.json. Startup displays INK; aim the light pen at INK to begin tracking. The program selects devices absent from this machine. Startup automatically suppresses IOSAL, as shown in the console alarm panel.",
+    "file": "tapes/sketchpad.tape",
+    "lines": 76284,
+    "sha256": "abeae0f9669dca8a9f6943672d4a70d1173b5a715acfe67a54b2a53ccee7ddc7"
+  },
+  {
+    "id": "upstream-hello",
+    "title": "HELLO · TX-2 Project example tape",
+    "tsp": "377750",
+    "kind": "Upstream tape",
+    "note": "Tape supplied by TX-2-simulator. After tx2tape fix relinks blocks and recomputes checksums, it boots through the original plugboard.",
+    "file": "tapes/upstream-hello.tape",
+    "lines": 294,
+    "sha256": "7d64fb9e43b7f8ccf3b44553623f092c7ac23e124dff46c0abee4ee797eba2bc"
+  }
+]
