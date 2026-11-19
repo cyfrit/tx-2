@@ -1,0 +1,26 @@
+{
+  "source_sha256": "0754101514d3975e71b1f25e4032df839ea24f9fe3d9d4d6497b99dc48d7b156",
+  "raw_assembler_tape_sha256": "312f8829f6d105295bd9d40eba576894b1981f3baf993a9c8b2e2a29d1c7a8dd",
+  "reader_leader_words": 20,
+  "paper_lines": 276,
+  "blocks": [
+    {
+      "word_offset": 20,
+      "body_words": 2,
+      "old_checksum": "606447",
+      "ring_checksum": "606473",
+      "changed": true,
+      "old_next": "000027",
+      "next": "000003"
+    },
+    {
+      "word_offset": 24,
+      "body_words": 20,
+      "old_checksum": "175137",
+      "ring_checksum": "575136",
+      "changed": true,
+      "old_next": "000027",
+      "next": "000027"
+    }
+  ]
+}

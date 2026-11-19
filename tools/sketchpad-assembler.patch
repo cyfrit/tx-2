@@ -1,0 +1,249 @@
+diff --git a/assembler/src/asmlib/ast.rs b/assembler/src/asmlib/ast.rs
+index 9badc30..fb5bd19 100644
+--- a/assembler/src/asmlib/ast.rs
++++ b/assembler/src/asmlib/ast.rs
+@@ -379,53 +379,26 @@ impl ArithmeticExpression {
+     }
+ 
+     fn eval_binop(left: Unsigned36Bit, binop: Operator, right: Unsigned36Bit) -> Unsigned36Bit {
++        // M4 6-2.7 uses integer expressions over 36-bit one's-complement
++        // words. Native unsigned checked operations reject negative operands.
++        fn integer_word(value: i128) -> Unsigned36Bit {
++            let mask = (1u128 << 36) - 1;
++            let magnitude = value.unsigned_abs() % mask;
++            let bits = if value < 0 { mask ^ magnitude } else { magnitude };
++            Unsigned36Bit::try_from(bits as u64).expect("masked 36-bit integer")
++        }
++        let lhs = i64::from(left.reinterpret_as_signed()) as i128;
++        let rhs = i64::from(right.reinterpret_as_signed()) as i128;
+         match binop {
+-            Operator::Add => match left.checked_add(right) {
+-                Some(result) => result,
+-                None => {
+-                    // TODO: checked_add doesn't currently match the
+-                    // operation of the TX-2 ADD instruction with
+-                    // respect to (for example) overflow.  See
+-                    // examples 4 and 5 for the ADD instruciton in the
+-                    // Users Handbook, for instance.
+-                    //
+-                    // We also come here for cases like 4 + -2,
+-                    // because (in the context of this function) -2
+-                    // appears to be a large unsigned number.
+-                    todo!(
+-                        "{left:>012o}+{right:>012o} overflowed; please fix https://github.com/TX-2/TX-2-simulator/issues/146"
+-                    )
+-                }
+-            },
+-            Operator::Subtract => match left.checked_sub(right) {
+-                Some(result) => result,
+-                None => {
+-                    todo!(
+-                        "{left:>012o}-{right:>012o} overflowed; please fix https://github.com/TX-2/TX-2-simulator/issues/146"
+-                    )
+-                }
+-            },
+-            Operator::Multiply => match left.checked_mul(right) {
+-                Some(result) => result,
+-                None => {
+-                    todo!("multiplication overflow occurred but this is not implemented")
+-                }
+-            },
++            Operator::Add => integer_word(lhs + rhs),
++            Operator::Subtract => integer_word(lhs - rhs),
++            Operator::Multiply => integer_word(lhs * rhs),
+             Operator::Divide => {
+-                let sleft: Signed36Bit = left.reinterpret_as_signed();
+-                let sright: Signed36Bit = right.reinterpret_as_signed();
+-                match sleft.checked_div(sright) {
+-                    Some(result) => result.reinterpret_as_unsigned(),
+-                    None => {
+-                        if sright.is_positive_zero() {
+-                            !left
+-                        } else if sright.is_negative_zero() {
+-                            left
+-                        } else {
+-                            unreachable!("division overflow occurred but RHS is not zero")
+-                        }
+-                    }
+-                }
++                if rhs == 0 {
++                    // Sketchpad's LGORR uses (0/0 xor 1) as a default selector.
++                    if lhs == 0 { Unsigned36Bit::ZERO }
++                    else if right.reinterpret_as_signed().is_positive_zero() { !left } else { left }
++                } else { integer_word(lhs / rhs) }
+             }
+             Operator::LogicalAnd => left.and(right.into()),
+             Operator::LogicalOr => left.bitor(right.into()),
+@@ -2307,7 +2280,7 @@ pub(crate) struct Equality {
+ impl Equality {
+     pub(super) fn symbol_uses(
+         &self,
+-    ) -> impl Iterator<Item = Result<(SymbolName, Span, SymbolUse), InconsistentSymbolUse>> + use<>
++    ) -> impl Iterator<Item = Result<(SymbolName, Span, SymbolUse), InconsistentSymbolUse>> + use<'_>
+     {
+         [Ok((
+             self.name.clone(),
+@@ -2318,5 +2291,6 @@ impl Equality {
+             ),
+         ))]
+         .into_iter()
++        .chain(self.value.inner.symbol_uses(BlockIdentifier::from(0usize), Unsigned18Bit::ZERO))
+     }
+ }
+diff --git a/assembler/src/asmlib/ast/asteval.rs b/assembler/src/asmlib/ast/asteval.rs
+index f7d067a..f485a94 100644
+--- a/assembler/src/asmlib/ast/asteval.rs
++++ b/assembler/src/asmlib/ast/asteval.rs
+@@ -393,7 +393,14 @@ impl Evaluate for UntaggedProgramInstruction {
+         // (b) in section 6-2.4, "NUMERICAL FORMAT - USE OF COMMAS" of
+         // the Users Handbook.  The initial value is zero (as
+         // specified in item (a) in the same place).
+-        evaluate_and_combine_values(self.fragments.iter(), ctx, scope)
++        let word = evaluate_and_combine_values(self.fragments.iter(), ctx, scope)?;
++        // Handbook 6-2.7: explicit not-hold is applied after all syllables,
++        // including an opcode's automatic hold bit. It may precede a CF.
++        let not_hold = self.fragments.iter().any(|part| {
++            matches!(part.holdbit, HoldBit::NotHold)
++                && part.leading_commas.is_none() && part.trailing_commas.is_none()
++        });
++        Ok(if not_hold { word & !u36!(0o400000000000) } else { word })
+     }
+ }
+ 
+diff --git a/assembler/src/asmlib/directive.rs b/assembler/src/asmlib/directive.rs
+index 54297f8..a84984e 100644
+--- a/assembler/src/asmlib/directive.rs
++++ b/assembler/src/asmlib/directive.rs
+@@ -71,8 +71,8 @@ impl Directive {
+     pub(super) fn position_rc_block(&mut self) -> Address {
+         self.blocks
+             .values()
++            .last()
+             .map(LocatedBlock::following_addr)
+-            .max()
+             .unwrap_or_else(Origin::default_address)
+     }
+ 
+diff --git a/assembler/src/asmlib/driver.rs b/assembler/src/asmlib/driver.rs
+index 99562f7..4ebda93 100644
+--- a/assembler/src/asmlib/driver.rs
++++ b/assembler/src/asmlib/driver.rs
+@@ -509,22 +509,6 @@ fn assemble_pass3(
+         }
+     }
+ 
+-    // We call extract_final_equalities here is to ensure that we
+-    // diagnose all looping definitions of equalities and get the data
+-    // we need for the listing, if there will be one.  It isn't
+-    // actually needed to generate the output binary.
+-    extract_final_equalities(
+-        equalities.as_slice(),
+-        body,
+-        explicit_symtab,
+-        implicit_symtab,
+-        memory_map,
+-        index_register_assigner,
+-        &mut rcblock,
+-        &mut final_symbols,
+-        &mut bad_symbol_definitions,
+-    )?;
+-
+     let convert_rc_failure = |e: RcWordAllocationFailure| -> AssemblerFailure {
+         match e {
+             RcWordAllocationFailure::RcBlockTooBig { source, .. } => {
+@@ -581,10 +565,27 @@ fn assemble_pass3(
+         }
+     }
+ 
++
+     if let Err(e) = assign_default_rc_word_tags(implicit_symtab, &mut rcblock, &mut final_symbols) {
+         return Err(convert_rc_failure(e));
+     }
+ 
++    // We call extract_final_equalities after default RC allocation to ensure that we
++    // diagnose all looping definitions of equalities and get the data
++    // we need for the listing, if there will be one.  It isn't
++    // actually needed to generate the output binary.
++    extract_final_equalities(
++        equalities.as_slice(),
++        body,
++        explicit_symtab,
++        implicit_symtab,
++        memory_map,
++        index_register_assigner,
++        &mut rcblock,
++        &mut final_symbols,
++        &mut bad_symbol_definitions,
++    )?;
++
+     // Emit the binary code.
+     for (block_id, directive_block) in blocks {
+         event!(
+diff --git a/assembler/src/asmlib/driver/tests.rs b/assembler/src/asmlib/driver/tests.rs
+index 192a6ee..85f344a 100644
+--- a/assembler/src/asmlib/driver/tests.rs
++++ b/assembler/src/asmlib/driver/tests.rs
+@@ -1214,3 +1214,35 @@ fn test_diagnose_duplicate_tags_in_macro_body() {
+     assert_ne!(errors.as_slice(), []);
+     assert!(errors.iter().any(|e| e.to_string().contains(expected_msg)));
+ }
++
++#[test]
++fn sketchpad_equality_alias_reserves_temporary_storage_before_listing() {
++    let program = assemble_source("ALIAS = SCRATCH+1\n100| LDA ALIAS\n", Default::default())
++        .expect("an equality may refer to automatically assigned storage");
++    assert_eq!(program.chunks[0].words[0], u36!(0o002400000102));
++    assert_eq!(program.chunks[1].address, Address::from(u18!(0o101)));
++    assert_eq!(program.chunks[1].words, vec![u36!(0)]);
++}
++
++#[test]
++fn sketchpad_rc_follows_last_manuscript_block_not_highest_address() {
++    let program = assemble_source("300| 1\n100| LDA {2}\n", Default::default())
++        .expect("descending block addresses are legal M4");
++    assert_eq!(program.chunks[1].words[0], u36!(0o002400000101));
++    assert_eq!(program.chunks[2].address, Address::from(u18!(0o101)));
++    assert_eq!(program.chunks[2].words, vec![u36!(2)]);
++}
++
++#[test]
++fn sketchpad_integer_expressions_and_default_exit_selector() {
++    let program = assemble_source("100| 4-6\n-2+6\n0/0\n(0/0 @xor@ 1) @times@ 200\n", Default::default())
++        .expect("negative integers and the LGORR default selector must assemble");
++    assert_eq!(program.chunks[0].words, vec![u36!(0o777777777775), u36!(4), u36!(0), u36!(0o200)]);
++}
++
++#[test]
++fn sketchpad_not_hold_before_configuration_overrides_opcode_default() {
++    let program = assemble_source("100| ℏ@sup_1@JNX@sub_3@400\n", Default::default())
++        .expect("not-hold may precede the configuration syllable");
++    assert_eq!(program.chunks[0].words[0], u36!(0o010703000400));
++}
+diff --git a/assembler/src/asmlib/symbol.rs b/assembler/src/asmlib/symbol.rs
+index 820dbf6..734e007 100644
+--- a/assembler/src/asmlib/symbol.rs
++++ b/assembler/src/asmlib/symbol.rs
+@@ -362,6 +362,10 @@ impl SymbolContext {
+     }
+ 
+     pub(super) fn requires_rc_word_allocation(&self) -> bool {
++        if matches!(self.origin, OriginUse::NotOrigin { config: ConfigUse::IncludesConfig, .. }
++            | OriginUse::NotOrigin { index: IndexUse::IncludesIndex, .. }) {
++            return false;
++        }
+         if self.address == AddressUse::IncludesAddress {
+             if matches!(&self.origin, &OriginUse::IncludesOrigin(_, _)) {
+                 // This symbol is used in address contexts, but it is
+diff --git a/assembler/src/asmlib/symtab.rs b/assembler/src/asmlib/symtab.rs
+index 0e6616b..3d16a87 100644
+--- a/assembler/src/asmlib/symtab.rs
++++ b/assembler/src/asmlib/symtab.rs
+@@ -461,7 +461,7 @@ pub(super) fn assign_default_rc_word_tags<R: RcAllocator>(
+                 name.clone(),
+                 FinalSymbolType::Equality,
+                 value.to_string(),
+-                FinalSymbolDefinition::PositionIndependent(value),
++                FinalSymbolDefinition::PositionIndependent(addr.into()),
+             );
+             *def = ImplicitDefinition::DefaultAssigned(addr.into(), context.clone());
+         }

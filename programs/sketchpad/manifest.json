@@ -1,0 +1,1767 @@
+{
+  "tool_revision": "7480ac70bfece86c58b28a9f085ab4fe63880aae",
+  "listing_revision": "3d134b23d207f169d0fb65ac5768177867689ed2",
+  "description": "Sketchpad listing reconstruction; private RC in U RAM; model normalized to 22000 octal",
+  "image": {
+    "modules": [
+      {
+        "module": "main",
+        "words": 2959,
+        "blocks": [
+          {
+            "start": "000027",
+            "count": 2
+          },
+          {
+            "start": "200002",
+            "count": 2
+          },
+          {
+            "start": "200050",
+            "count": 4
+          },
+          {
+            "start": "200066",
+            "count": 1
+          },
+          {
+            "start": "004000",
+            "count": 90
+          },
+          {
+            "start": "004151",
+            "count": 2467
+          },
+          {
+            "start": "210000",
+            "count": 374
+          },
+          {
+            "start": "210566",
+            "count": 21
+          }
+        ],
+        "private_rc_next": "210620",
+        "source_sha256": "210de297b9026fb97f8012a98b073f95de7b8b99d2cfc7e1e117f1802e3995b8"
+      },
+      {
+        "module": "calculate",
+        "words": 1854,
+        "blocks": [
+          {
+            "start": "000027",
+            "count": 2
+          },
+          {
+            "start": "200067",
+            "count": 1
+          },
+          {
+            "start": "200070",
+            "count": 6
+          },
+          {
+            "start": "200100",
+            "count": 4
+          },
+          {
+            "start": "023777",
+            "count": 1
+          },
+          {
+            "start": "022000",
+            "count": 123
+          },
+          {
+            "start": "022201",
+            "count": 14
+          },
+          {
+            "start": "022225",
+            "count": 14
+          },
+          {
+            "start": "022251",
+            "count": 14
+          },
+          {
+            "start": "022275",
+            "count": 14
+          },
+          {
+            "start": "022321",
+            "count": 14
+          },
+          {
+            "start": "022345",
+            "count": 14
+          },
+          {
+            "start": "022371",
+            "count": 14
+          },
+          {
+            "start": "022415",
+            "count": 14
+          },
+          {
+            "start": "204400",
+            "count": 1461
+          },
+          {
+            "start": "210620",
+            "count": 113
+          },
+          {
+            "start": "211001",
+            "count": 33
+          }
+        ],
+        "private_rc_next": "211050",
+        "source_sha256": "034fedca44da35ad4490072879f479ca5defcb8206a4af054ad6a5c03b2ccafb"
+      },
+      {
+        "module": "constraints",
+        "words": 1109,
+        "blocks": [
+          {
+            "start": "000027",
+            "count": 2
+          },
+          {
+            "start": "022000",
+            "count": 1
+          },
+          {
+            "start": "022441",
+            "count": 341
+          },
+          {
+            "start": "023746",
+            "count": 23
+          },
+          {
+            "start": "020400",
+            "count": 693
+          },
+          {
+            "start": "211050",
+            "count": 46
+          },
+          {
+            "start": "211126",
+            "count": 5
+          }
+        ],
+        "private_rc_next": "211140",
+        "source_sha256": "e5f2d2c37146cce403c696d3d3bd1f8d877530c89a7df07770127676b3814c1f"
+      },
+      {
+        "module": "math",
+        "words": 1287,
+        "blocks": [
+          {
+            "start": "000027",
+            "count": 2
+          },
+          {
+            "start": "200060",
+            "count": 1
+          },
+          {
+            "start": "200063",
+            "count": 2
+          },
+          {
+            "start": "023775",
+            "count": 2
+          },
+          {
+            "start": "012000",
+            "count": 707
+          },
+          {
+            "start": "211140",
+            "count": 561
+          },
+          {
+            "start": "212221",
+            "count": 14
+          }
+        ],
+        "private_rc_next": "212240",
+        "source_sha256": "35009a62c9ad48ca5a97381344a576d701c7e895bf92efc092051cf6dd09cde0"
+      },
+      {
+        "module": "display",
+        "words": 1469,
+        "blocks": [
+          {
+            "start": "000027",
+            "count": 2
+          },
+          {
+            "start": "200005",
+            "count": 1
+          },
+          {
+            "start": "200040",
+            "count": 5
+          },
+          {
+            "start": "200054",
+            "count": 3
+          },
+          {
+            "start": "200134",
+            "count": 1
+          },
+          {
+            "start": "001000",
+            "count": 1312
+          },
+          {
+            "start": "212240",
+            "count": 82
+          },
+          {
+            "start": "212362",
+            "count": 65
+          }
+        ],
+        "private_rc_next": "212470",
+        "source_sha256": "aa06a05ae304fa0b3522cebbfd5555641c90a801ea8b1072b672e828a440dba9"
+      },
+      {
+        "module": "io",
+        "words": 2052,
+        "blocks": [
+          {
+            "start": "000027",
+            "count": 2
+          },
+          {
+            "start": "200014",
+            "count": 3
+          },
+          {
+            "start": "200076",
+            "count": 2
+          },
+          {
+            "start": "200120",
+            "count": 8
+          },
+          {
+            "start": "014400",
+            "count": 1471
+          },
+          {
+            "start": "212470",
+            "count": 552
+          },
+          {
+            "start": "213540",
+            "count": 16
+          }
+        ],
+        "private_rc_next": "213560",
+        "source_sha256": "2dbef0da9cc8bf0d247d48fb4bd3a162919fc6189766a130b91f60ec4cee8df4"
+      },
+      {
+        "module": "build",
+        "words": 1895,
+        "blocks": [
+          {
+            "start": "000027",
+            "count": 2
+          },
+          {
+            "start": "177772",
+            "count": 6
+          },
+          {
+            "start": "200000",
+            "count": 2
+          },
+          {
+            "start": "200004",
+            "count": 1
+          },
+          {
+            "start": "200006",
+            "count": 3
+          },
+          {
+            "start": "200017",
+            "count": 12
+          },
+          {
+            "start": "200034",
+            "count": 3
+          },
+          {
+            "start": "200130",
+            "count": 4
+          },
+          {
+            "start": "200135",
+            "count": 3
+          },
+          {
+            "start": "200140",
+            "count": 1715
+          },
+          {
+            "start": "213560",
+            "count": 99
+          },
+          {
+            "start": "213723",
+            "count": 47
+          }
+        ],
+        "private_rc_next": "214010",
+        "source_sha256": "39cb944005fe952f40728d32159eec94955f31da81f6808a163ffdeae7519730"
+      }
+    ],
+    "words": 12624,
+    "conflicts": [
+      {
+        "address": "022000",
+        "earlier": "calculate",
+        "later": "constraints",
+        "old": "000000000605",
+        "new": "000000001165"
+      }
+    ],
+    "load": "Absolute image plus checksummed paper; paper boot executes the original reader leader",
+    "rc_relocation": "private compiler RC words relocated into existing U RAM; common NLIST=22000"
+  },
+  "paper": {
+    "leader_words": 20,
+    "lines": 76284,
+    "blocks": [
+      {
+        "start": "000027",
+        "words": 2,
+        "checksum": "406573",
+        "next": "000003"
+      },
+      {
+        "start": "001000",
+        "words": 1312,
+        "checksum": "372561",
+        "next": "000003"
+      },
+      {
+        "start": "004000",
+        "words": 90,
+        "checksum": "404174",
+        "next": "000003"
+      },
+      {
+        "start": "004151",
+        "words": 2467,
+        "checksum": "702754",
+        "next": "000003"
+      },
+      {
+        "start": "012000",
+        "words": 707,
+        "checksum": "473617",
+        "next": "000003"
+      },
+      {
+        "start": "014400",
+        "words": 1471,
+        "checksum": "715543",
+        "next": "000003"
+      },
+      {
+        "start": "020400",
+        "words": 693,
+        "checksum": "733163",
+        "next": "000003"
+      },
+      {
+        "start": "022000",
+        "words": 123,
+        "checksum": "562040",
+        "next": "000003"
+      },
+      {
+        "start": "022201",
+        "words": 14,
+        "checksum": "421353",
+        "next": "000003"
+      },
+      {
+        "start": "022225",
+        "words": 14,
+        "checksum": "417370",
+        "next": "000003"
+      },
+      {
+        "start": "022251",
+        "words": 14,
+        "checksum": "602305",
+        "next": "000003"
+      },
+      {
+        "start": "022275",
+        "words": 14,
+        "checksum": "556153",
+        "next": "000003"
+      },
+      {
+        "start": "022321",
+        "words": 14,
+        "checksum": "560374",
+        "next": "000003"
+      },
+      {
+        "start": "022345",
+        "words": 14,
+        "checksum": "551777",
+        "next": "000003"
+      },
+      {
+        "start": "022371",
+        "words": 14,
+        "checksum": "555005",
+        "next": "000003"
+      },
+      {
+        "start": "022415",
+        "words": 14,
+        "checksum": "567310",
+        "next": "000003"
+      },
+      {
+        "start": "022441",
+        "words": 341,
+        "checksum": "255132",
+        "next": "000003"
+      },
+      {
+        "start": "023746",
+        "words": 26,
+        "checksum": "167343",
+        "next": "000003"
+      },
+      {
+        "start": "177772",
+        "words": 15,
+        "checksum": "451671",
+        "next": "000003"
+      },
+      {
+        "start": "200014",
+        "words": 15,
+        "checksum": "723060",
+        "next": "000003"
+      },
+      {
+        "start": "200034",
+        "words": 3,
+        "checksum": "576740",
+        "next": "000003"
+      },
+      {
+        "start": "200040",
+        "words": 5,
+        "checksum": "033727",
+        "next": "000003"
+      },
+      {
+        "start": "200050",
+        "words": 7,
+        "checksum": "245011",
+        "next": "000003"
+      },
+      {
+        "start": "200060",
+        "words": 1,
+        "checksum": "165214",
+        "next": "000003"
+      },
+      {
+        "start": "200063",
+        "words": 2,
+        "checksum": "410504",
+        "next": "000003"
+      },
+      {
+        "start": "200066",
+        "words": 14,
+        "checksum": "235615",
+        "next": "000003"
+      },
+      {
+        "start": "200120",
+        "words": 1731,
+        "checksum": "160212",
+        "next": "000003"
+      },
+      {
+        "start": "204400",
+        "words": 1461,
+        "checksum": "005742",
+        "next": "000003"
+      },
+      {
+        "start": "210000",
+        "words": 395,
+        "checksum": "730026",
+        "next": "000003"
+      },
+      {
+        "start": "210620",
+        "words": 146,
+        "checksum": "145233",
+        "next": "000003"
+      },
+      {
+        "start": "211050",
+        "words": 51,
+        "checksum": "340224",
+        "next": "000003"
+      },
+      {
+        "start": "211140",
+        "words": 575,
+        "checksum": "045162",
+        "next": "000003"
+      },
+      {
+        "start": "212240",
+        "words": 147,
+        "checksum": "733104",
+        "next": "000003"
+      },
+      {
+        "start": "212470",
+        "words": 714,
+        "checksum": "427727",
+        "next": "000027"
+      }
+    ]
+  },
+  "source_changes": [
+    {
+      "module": "main",
+      "source": "part1:339:pdf13",
+      "old": "NLIST= 32000",
+      "new": "NLIST=22000",
+      "class": "mechanical"
+    },
+    {
+      "module": "main",
+      "source": "part1:383:pdf14",
+      "old": "RDTX2= 126",
+      "new": "RDTX2= 200126",
+      "class": "inferred"
+    },
+    {
+      "module": "main",
+      "source": "part1:586:pdf18",
+      "old": "hJPX@sub_S@#+3",
+      "new": "hJPX@sub_S@#+2",
+      "class": "verified"
+    },
+    {
+      "module": "main",
+      "source": "part1:829:pdf23",
+      "old": "                MKN @sub_1@@sub_dot@@sub_?@ PAGE1",
+      "new": "                MKN @sub_1@@sub_dot@@sub_8@ PAGE1",
+      "class": "verified"
+    },
+    {
+      "module": "main",
+      "source": "part1:831:pdf23",
+      "old": "                MKN @sub_1@@sub_dot@@sub_?@ PAGE1",
+      "new": "                MKN @sub_1@@sub_dot@@sub_8@ PAGE1",
+      "class": "verified"
+    },
+    {
+      "module": "main",
+      "source": "part1:885:pdf24",
+      "old": "                LDA @sub_?@ 47TABLE+1",
+      "new": "                LDA @sub_alpha@ 47TABLE+1",
+      "class": "verified"
+    },
+    {
+      "module": "main",
+      "source": "part1:887:pdf24",
+      "old": "                INX @sub_?@ 1",
+      "new": "                INX @sub_alpha@ 1",
+      "class": "verified"
+    },
+    {
+      "module": "main",
+      "source": "part1:888:pdf24",
+      "old": "                DPX @sub_?@ 76TABLE",
+      "new": "                DPX @sub_alpha@ 76TABLE",
+      "class": "verified"
+    },
+    {
+      "module": "main",
+      "source": "part1:891:pdf24",
+      "old": "                SKZ @sub_1@@sub_dot@@sub_?@ 76BUT",
+      "new": "                SKZ @sub_1@@sub_dot@@sub_8@ 76BUT",
+      "class": "verified"
+    },
+    {
+      "module": "main",
+      "source": "part1:911:pdf25",
+      "old": "                SKZ @sub_2@@sub_dot@@sub_1@ 74BUT",
+      "new": "                SKZ @sub_2@@sub_dot@@sub_1@ 76BUT",
+      "class": "verified"
+    },
+    {
+      "module": "main",
+      "source": "part1:919:pdf25",
+      "old": "                SKZ @sub_2@@sub_dot@@sub_?@ 76BUT",
+      "new": "                SKZ @sub_2@@sub_dot@@sub_8@ 76BUT",
+      "class": "verified"
+    },
+    {
+      "module": "main",
+      "source": "part1:985:pdf26",
+      "old": "                RSN @sub_alpha@ 76TABLE",
+      "new": "                RSX @sub_alpha@ 76TABLE",
+      "class": "verified"
+    },
+    {
+      "module": "main",
+      "source": "part1:1252:pdf31",
+      "old": "                MUL { 100.}",
+      "new": "                MUL { 100.,}",
+      "class": "verified"
+    },
+    {
+      "module": "main",
+      "source": "part1:1371:pdf33",
+      "old": "                RSZ @sub_alpha@ ATBITS",
+      "new": "                RSX @sub_alpha@ ATBITS",
+      "class": "verified"
+    },
+    {
+      "module": "main",
+      "source": "part1:1417:pdf34",
+      "old": "                JPQ TRUEUPX",
+      "new": "                MKN MOVED",
+      "class": "verified"
+    },
+    {
+      "module": "main",
+      "source": "part1:1473:pdf35",
+      "old": "                JPQ #+1",
+      "new": "                JPQ #+3",
+      "class": "inferred"
+    },
+    {
+      "module": "main",
+      "source": "part1:1496:pdf35",
+      "old": "                JPX MOVE@alpha@C",
+      "new": "                JPQ MOVE@alpha@C",
+      "class": "verified"
+    },
+    {
+      "module": "main",
+      "source": "part1:1596:pdf37",
+      "old": "                @sup_1@STE MERGEIPFX",
+      "new": "                @sup_1@STE MERGEIFPX",
+      "class": "verified"
+    },
+    {
+      "module": "main",
+      "source": "part1:1673:pdf39",
+      "old": "STOMOVEP2J@arr@",
+      "new": "STOPMOVEP2J@arr@",
+      "class": "verified"
+    },
+    {
+      "module": "main",
+      "source": "part1:1838:pdf42",
+      "old": "                @sup_1@DPX @sub_pipe@@sub_beta@ LIST",
+      "new": "                @sup_1@DPX @sub_0@@sub_pipe@@sub_beta@ LIST",
+      "class": "mechanical"
+    },
+    {
+      "module": "main",
+      "source": "part1:1927:pdf43",
+      "old": "                LGORR@hamb@SPECB@times@@gamma@=S@arr@DUM1@arr@DUMEX",
+      "new": "                LGORR@hamb@SPECB@times@@gamma@=S@arr@DUM1@arr@DUMMEX",
+      "class": "verified"
+    },
+    {
+      "module": "main",
+      "source": "part1:2060:pdf46",
+      "old": "                MUL { 100.}",
+      "new": "                MUL { 100.,}",
+      "class": "verified"
+    },
+    {
+      "module": "main",
+      "source": "part1:2111:pdf47",
+      "old": "                @sup_1@SPX @sub_S@ COPYFIXI",
+      "new": "                @sup_1@DPX @sub_S@ COPYFIXI",
+      "class": "verified"
+    },
+    {
+      "module": "main",
+      "source": "part1:2147:pdf47",
+      "old": "                MOVEL@hamb@@alpha@@times@@delta@@arr@0@times@@gamma@",
+      "new": "                MOVEL@hamb@0@times@@delta@@arr@0@times@@gamma@",
+      "class": "inferred"
+    },
+    {
+      "module": "main",
+      "source": "part1:2205:pdf48",
+      "old": "                LTAKE@hamb@VORDE@times@@beta@",
+      "new": "                LTAKE@hamb@VORD@times@@beta@",
+      "class": "verified"
+    },
+    {
+      "module": "main",
+      "source": "part1:2351:pdf51",
+      "old": "                JPQ GARB?",
+      "new": "                JPQ GARB3",
+      "class": "verified"
+    },
+    {
+      "module": "main",
+      "source": "part1:2431:pdf53",
+      "old": "                LDA {-(h)}",
+      "new": "                LDA {-(400000000000)}",
+      "class": "mechanical"
+    },
+    {
+      "module": "main",
+      "source": "part1:2443:pdf53",
+      "old": "                MKZ @sub_M@@sub_E@@sub_T@@sub_A@|@sub_alpha@ LIST",
+      "new": "                MKZ @sub_M@@sub_E@@sub_T@@sub_A@@sub_pipe@@sub_alpha@ LIST",
+      "class": "mechanical"
+    },
+    {
+      "module": "main",
+      "source": "part1:2456:pdf53",
+      "old": "                LDA {-(h)}",
+      "new": "                LDA {-(400000000000)}",
+      "class": "mechanical"
+    },
+    {
+      "module": "main",
+      "source": "part1:2476:pdf53",
+      "old": "                LDS @sub_alpha@ LIST+PVAL+1",
+      "new": "                LDA @sub_alpha@ LIST+PVAL+1",
+      "class": "verified"
+    },
+    {
+      "module": "main",
+      "source": "part1:2591:pdf56",
+      "old": "                hSED {(h)}",
+      "new": "                hSED {(400000000000)}",
+      "class": "mechanical"
+    },
+    {
+      "module": "main",
+      "source": "part1:2593:pdf56",
+      "old": "                SED {-(h)}",
+      "new": "                SED {-(400000000000)}",
+      "class": "mechanical"
+    },
+    {
+      "module": "main",
+      "source": "part1:2702:pdf58",
+      "old": "                h@sup_1@JNA @sub_alpha@ MGP3+1",
+      "new": "                h@sup_1@JNX @sub_alpha@ MGP3+1",
+      "class": "verified"
+    },
+    {
+      "module": "main",
+      "source": "Users Handbook 6-2.3 rule 3, PDF pages 159-160; Technical Manual vol.3 16-5 AOP",
+      "old": "Reference tool lacks M4 A/B/C/D/E preassignments and the AOP mnemonic",
+      "new": "A=377604; B=377605; C=377606; D=377607; E=377610; AOP=000400100000",
+      "class": "verified"
+    },
+    {
+      "module": "calculate",
+      "source": "part2:429:pdf13",
+      "old": "NLIST= 22000",
+      "new": "NLIST=22000",
+      "class": "mechanical"
+    },
+    {
+      "module": "calculate",
+      "source": "part2:902:pdf22",
+      "old": "                42,41,,,20,45",
+      "new": "                42,41,,20,45",
+      "class": "verified"
+    },
+    {
+      "module": "calculate",
+      "source": "part2:940:pdf23",
+      "old": "H3@arr@         HEADER@arr@HOLDERS@arr@(42,32,,41,46)",
+      "new": "H3@arr@         HEADER@hamb@HOLDERS@arr@(42,32,,41,46)",
+      "class": "verified"
+    },
+    {
+      "module": "calculate",
+      "source": "part2:1007:pdf24",
+      "old": "H9.3@arr@       HEADERS@hamb@HOLDERS@arr@(2,41,,37,42)",
+      "new": "H9.3@arr@       HEADER@hamb@HOLDERS@arr@(2,41,,37,42)",
+      "class": "mechanical"
+    },
+    {
+      "module": "calculate",
+      "source": "part2:1014:pdf24",
+      "old": "H10@arr@        SMASBL,4,MM2-NLIST",
+      "new": "H10@arr@        SMASBL,4,,MM2-NLIST",
+      "class": "verified"
+    },
+    {
+      "module": "calculate",
+      "source": "part2:1041:pdf25",
+      "old": "L2@arr@         MASTER@hamb@TOPOS@arr@(24,35,,,30,33)",
+      "new": "L2@arr@         MASTER@hamb@TOPOS@arr@(24,35,,30,33)",
+      "class": "verified"
+    },
+    {
+      "module": "calculate",
+      "source": "part2:1234:pdf33",
+      "old": "                LDA {-(h)}",
+      "new": "                LDA {-(400000000000)}",
+      "class": "mechanical"
+    },
+    {
+      "module": "calculate",
+      "source": "part2:1271:pdf34",
+      "old": "                hLDA {-(h)}",
+      "new": "                hLDA {-(400000000000)}",
+      "class": "mechanical"
+    },
+    {
+      "module": "calculate",
+      "source": "part2:1315:pdf34",
+      "old": "                RES @sub_S@ 6",
+      "new": "                REX @sub_S@ 6",
+      "class": "verified"
+    },
+    {
+      "module": "calculate",
+      "source": "part2:1572:pdf39",
+      "old": "                LDA {-(h)}",
+      "new": "                LDA {-(400000000000)}",
+      "class": "mechanical"
+    },
+    {
+      "module": "calculate",
+      "source": "part2:1660:pdf41",
+      "old": "                DPX NDISP",
+      "new": "                ",
+      "class": "verified"
+    },
+    {
+      "module": "calculate",
+      "source": "part2:1661:pdf41",
+      "old": "                LDA {-(h)}",
+      "new": "                LDA {-(400000000000)}",
+      "class": "mechanical"
+    },
+    {
+      "module": "calculate",
+      "source": "part2:1662:pdf41",
+      "old": "                STA MATH",
+      "new": "                STA MATM",
+      "class": "verified"
+    },
+    {
+      "module": "calculate",
+      "source": "part2:1751:pdf42",
+      "old": "                LDB {h}",
+      "new": "                LDB {400000000000}",
+      "class": "mechanical"
+    },
+    {
+      "module": "calculate",
+      "source": "part2:1801:pdf43",
+      "old": "                MOVE|{-(h)}@arr@CMANG",
+      "new": "                MOVE|{-(400000000000)}@arr@CMANG",
+      "class": "mechanical"
+    },
+    {
+      "module": "calculate",
+      "source": "part2:1900:pdf45",
+      "old": "                RES @sub_S@ 3",
+      "new": "                REX @sub_S@ 3",
+      "class": "verified"
+    },
+    {
+      "module": "calculate",
+      "source": "part2:2007:pdf47",
+      "old": "                MOVE|MAGIX@arr@@sup_2@ PSAVE+LIST@sub_gamma@",
+      "new": "                MOVE|MAG1X@arr@@sup_2@ PSAVE+LIST@sub_gamma@",
+      "class": "verified"
+    },
+    {
+      "module": "calculate",
+      "source": "part2:2177:pdf50",
+      "old": "AFOVER@arr@     LDA { 377,-0,,-0,-0}",
+      "new": "AFOVER@arr@     LDA { 377,777777777777,,777777777777,777777777777}",
+      "class": "mechanical"
+    },
+    {
+      "module": "calculate",
+      "source": "part2:1652:pdf41 PDF41 handwritten arrow from MAGPIC to the line after MAG entry",
+      "old": "Transcription omits the next instruction",
+      "new": "DPX NDISP",
+      "class": "verified"
+    },
+    {
+      "module": "calculate",
+      "source": "Users Handbook 6-2.3 rule 3, PDF pages 159-160; Technical Manual vol.3 16-5 AOP",
+      "old": "Reference tool lacks M4 A/B/C/D/E preassignments and the AOP mnemonic",
+      "new": "A=377604; B=377605; C=377606; D=377607; E=377610; AOP=000400100000",
+      "class": "verified"
+    },
+    {
+      "module": "constraints",
+      "source": "part1:6357:pdf138",
+      "old": "NLIST= 22000",
+      "new": "NLIST=22000",
+      "class": "mechanical"
+    },
+    {
+      "module": "constraints",
+      "source": "part1:6358:pdf138",
+      "old": "NUMRAT=(-(h)/6)",
+      "new": "NUMRAT=(-(400000000000)/6)",
+      "class": "mechanical"
+    },
+    {
+      "module": "constraints",
+      "source": "part1:6408:pdf140",
+      "old": "EITH1@arr@      LDA {-(h)}",
+      "new": "EITH1@arr@      LDA {-(400000000000)}",
+      "class": "mechanical"
+    },
+    {
+      "module": "constraints",
+      "source": "part2:62:pdf3",
+      "old": "                LDA {-(h)}",
+      "new": "                LDA {-(400000000000)}",
+      "class": "mechanical"
+    },
+    {
+      "module": "constraints",
+      "source": "part2:68:pdf3",
+      "old": "                LDA {(-(h))/3}",
+      "new": "                LDA {(-(400000000000))/3}",
+      "class": "mechanical"
+    },
+    {
+      "module": "constraints",
+      "source": "part2:77:pdf3",
+      "old": "                LDA {(-(h))/3}",
+      "new": "                LDA {(-(400000000000))/3}",
+      "class": "mechanical"
+    },
+    {
+      "module": "constraints",
+      "source": "part2:89:pdf3",
+      "old": "                PYTH@hamb@LIST??=TT@arr@BADOV",
+      "new": "                PYTH@hamb@LIST@sub_gamma@=TT@arr@BADOV",
+      "class": "inferred"
+    },
+    {
+      "module": "constraints",
+      "source": "part2:291:pdf7",
+      "old": "                PROD@times@{-(h)}/{ 343597302.}@arr@BADOV",
+      "new": "                PROD@times@{-(400000000000)}/{ 343597382.}@arr@BADOV",
+      "class": "verified"
+    },
+    {
+      "module": "constraints",
+      "source": "part1:6725:pdf152 PDF152/printed150, assembled |400500 021103| at 771",
+      "old": "Transcription omits the next instruction",
+      "new": "hJMP HOVSCOMP",
+      "class": "verified"
+    },
+    {
+      "module": "constraints",
+      "source": "Users Handbook 6-2.3 rule 3, PDF pages 159-160; Technical Manual vol.3 16-5 AOP",
+      "old": "Reference tool lacks M4 A/B/C/D/E preassignments and the AOP mnemonic",
+      "new": "A=377604; B=377605; C=377606; D=377607; E=377610; AOP=000400100000",
+      "class": "verified"
+    },
+    {
+      "module": "math",
+      "source": "part2:2394:pdf58",
+      "old": "@sup_1@SPX@sub_y@@sub_1@NORT2-1",
+      "new": "@sup_1@DPX@sub_y@@sub_1@NORT2-1",
+      "class": "verified"
+    },
+    {
+      "module": "math",
+      "source": "part2:2414:pdf58",
+      "old": "hMAB {35.,}",
+      "new": "hNAB {35.,}",
+      "class": "verified"
+    },
+    {
+      "module": "math",
+      "source": "part2:2521:pdf60",
+      "old": "@sup_?@DPX@sub_P@A",
+      "new": "@sup_2@DPX@sub_P@A",
+      "class": "inferred"
+    },
+    {
+      "module": "math",
+      "source": "part2:2888:pdf67",
+      "old": "                RSX@sub_y@@sub_1@SLVTS-1",
+      "new": "                RSX@sub_y@@sub_1@SLVT5-1",
+      "class": "verified"
+    },
+    {
+      "module": "math",
+      "source": "part2:2908:pdf68",
+      "old": "                LDA@sub_x@@sub_1@@sub_S@@sub_pipe@@sub_beta@@sub_x@@sub_3@",
+      "new": "                LDA@sub_x@@sub_1@@sub_pipe@@sub_x@@sub_3@",
+      "class": "verified"
+    },
+    {
+      "module": "math",
+      "source": "part2:2911:pdf68",
+      "old": "                JOV SLVAD9",
+      "new": "                JOV SLVAD8",
+      "class": "verified"
+    },
+    {
+      "module": "math",
+      "source": "part2:3081:pdf72",
+      "old": "                MUL {-200,-0,,-0}",
+      "new": "                MUL {-200,777777777777,,777777777777}",
+      "class": "mechanical"
+    },
+    {
+      "module": "math",
+      "source": "part2:3263:pdf75",
+      "old": "WKR1A@arr@      @sup_1@STE WRK1AX",
+      "new": "WRK1A@arr@      @sup_1@STE WRK1AX",
+      "class": "verified"
+    },
+    {
+      "module": "math",
+      "source": "part2:3280:pdf76",
+      "old": "WKR4@arr@       @sup_1@STE WRK4X",
+      "new": "WRK4@arr@       @sup_1@STE WRK4X",
+      "class": "verified"
+    },
+    {
+      "module": "math",
+      "source": "part2:3357:pdf77",
+      "old": "                LTAKE@hamb@VORDE@times@@alpha@",
+      "new": "                LTAKE@hamb@VORD@times@@alpha@",
+      "class": "verified"
+    },
+    {
+      "module": "math",
+      "source": "part2:3390:pdf78",
+      "old": "RI@arr@         JPQ 377758",
+      "new": "RI@arr@         JPQ 377750",
+      "class": "verified"
+    },
+    {
+      "module": "math",
+      "source": "Users Handbook 6-2.3 rule 3, PDF pages 159-160; Technical Manual vol.3 16-5 AOP",
+      "old": "Reference tool lacks M4 A/B/C/D/E preassignments and the AOP mnemonic",
+      "new": "A=377604; B=377605; C=377606; D=377607; E=377610; AOP=000400100000",
+      "class": "verified"
+    },
+    {
+      "module": "display",
+      "source": "part2:3512:pdf84",
+      "old": "NLIST= 23000",
+      "new": "NLIST=22000",
+      "class": "mechanical"
+    },
+    {
+      "module": "display",
+      "source": "part2:3743:pdf89",
+      "old": "STA A+D",
+      "new": "STD A+D",
+      "class": "verified"
+    },
+    {
+      "module": "display",
+      "source": "part2:3793:pdf90",
+      "old": "@sup_2@DPX@sub_Q@A",
+      "new": "@sup_1@DPX@sub_Q@A",
+      "class": "verified"
+    },
+    {
+      "module": "display",
+      "source": "part2:3879:pdf93",
+      "old": "                RSX @sub_S@@sub_pipe@@sub_alpha@ LPSEEN",
+      "new": "                RSX @sub_S@@sub_1@@sub_alpha@ LPSEEN",
+      "class": "verified"
+    },
+    {
+      "module": "display",
+      "source": "part2:3881:pdf93",
+      "old": "                hLDQ @sub_S@@sub_pipe@@sub_alpha@ LPSEE",
+      "new": "                hLDE @sub_S@@sub_1@@sub_alpha@ LPSEE",
+      "class": "verified"
+    },
+    {
+      "module": "display",
+      "source": "part2:3882:pdf93",
+      "old": "                STE @sub_S@@sub_pipe@@sub_alpha@ PENSEE",
+      "new": "                STE @sub_S@@sub_1@@sub_alpha@ PENSEE",
+      "class": "verified"
+    },
+    {
+      "module": "display",
+      "source": "part2:3883:pdf93",
+      "old": "                @sup_minus@@sup_1@JPX @sub_S@@sub_pipe@@sub_alpha@#-2",
+      "new": "                @sup_minus@@sup_1@JPX @sub_S@@sub_1@@sub_alpha@#-2",
+      "class": "verified"
+    },
+    {
+      "module": "display",
+      "source": "part2:3952:pdf94",
+      "old": "                SKX @sub_2@@sub_dot@@sub_8@ S1STATE",
+      "new": "                SKN @sub_2@@sub_dot@@sub_8@ S1STATE",
+      "class": "verified"
+    },
+    {
+      "module": "display",
+      "source": "part2:4291:pdf100",
+      "old": "                SAB { 10.,}",
+      "new": "                SAB { 18.,}",
+      "class": "verified"
+    },
+    {
+      "module": "display",
+      "source": "part2:4300:pdf101",
+      "old": "                SAB { 10.,}",
+      "new": "                SAB { 18.,}",
+      "class": "verified"
+    },
+    {
+      "module": "display",
+      "source": "part2:4389:pdf102",
+      "old": "                LDA { 377,-0,,-0,-0}",
+      "new": "                LDA { 377,777777777777,,777777777777,777777777777}",
+      "class": "mechanical"
+    },
+    {
+      "module": "display",
+      "source": "part2:4394:pdf102",
+      "old": "                S @rect_dash@ TYPE,@sub_P@@sub_S@@sub_gamma@",
+      "new": "                S @rect_dash@ TYPE,PS@gamma@",
+      "class": "verified"
+    },
+    {
+      "module": "display",
+      "source": "part2:4436:pdf103",
+      "old": "                JPQ Ps2P",
+      "new": "                JPQ PS2P",
+      "class": "verified"
+    },
+    {
+      "module": "display",
+      "source": "part2:4694:pdf108",
+      "old": "                LLCROSS@hamb@PS@alpha@@arr@PS@beta@@arr@PS6",
+      "new": "                LLCROSSP@hamb@PS@alpha@@arr@PS@beta@@arr@PS6",
+      "class": "mechanical"
+    },
+    {
+      "module": "display",
+      "source": "part2:3897:pdf93 PDF93/printed243",
+      "old": "Transcription omits the next instruction",
+      "new": "hLDE @sub_L@@sub_P@@sub_alpha@ 0",
+      "class": "verified"
+    },
+    {
+      "module": "display",
+      "source": "part2:4053:pdf96 PDF96: TRLP prints three hJPQ TRREX / INX pairs",
+      "old": "Transcription omits the next instruction",
+      "new": "hJPQ TRREX",
+      "class": "verified"
+    },
+    {
+      "module": "display",
+      "source": "part2:4053:pdf96 PDF96: TRLP prints three hJPQ TRREX / INX pairs",
+      "old": "Transcription omits the next instruction",
+      "new": "@sup_2@@sup_0@INX @sub_6@@sub_0@ 1",
+      "class": "verified"
+    },
+    {
+      "module": "display",
+      "source": "Users Handbook 6-2.3 rule 3, PDF pages 159-160; Technical Manual vol.3 16-5 AOP",
+      "old": "Reference tool lacks M4 A/B/C/D/E preassignments and the AOP mnemonic",
+      "new": "A=377604; B=377605; C=377606; D=377607; E=377610; AOP=000400100000",
+      "class": "verified"
+    },
+    {
+      "module": "io",
+      "source": "part1:3767:pdf86",
+      "old": "NLIST= 23000",
+      "new": "NLIST=22000",
+      "class": "mechanical"
+    },
+    {
+      "module": "io",
+      "source": "part1:3937:pdf90",
+      "old": "?=#",
+      "new": "@delta@=4",
+      "class": "inferred"
+    },
+    {
+      "module": "io",
+      "source": "part1:3959:pdf91",
+      "old": "STA A+D",
+      "new": "STD A+D",
+      "class": "verified"
+    },
+    {
+      "module": "io",
+      "source": "part1:4330:pdf98",
+      "old": "                JQP CMP1",
+      "new": "                JPQ CMP1",
+      "class": "verified"
+    },
+    {
+      "module": "io",
+      "source": "part1:4414:pdf99",
+      "old": "ELOOPMSG1@beta@@arr@    @sup_1@@sup_3@RSX@sub_3@@sub_7@XSETX@beta@*",
+      "new": "ELOOPMSG1@beta@@arr@    @sup_1@@sup_3@RSX@sub_3@@sub_7@XSETK@beta@*",
+      "class": "verified"
+    },
+    {
+      "module": "io",
+      "source": "part1:4659:pdf104",
+      "old": "                TAPER3-TAPEK2,,TAPEK2",
+      "new": "                TAPEK3-TAPEK2,,TAPEK2",
+      "class": "verified"
+    },
+    {
+      "module": "io",
+      "source": "part1:4660:pdf104",
+      "old": "                TAPEK4-TAPER3,,TAPEK3",
+      "new": "                TAPEK4-TAPEK3,,TAPEK3",
+      "class": "verified"
+    },
+    {
+      "module": "io",
+      "source": "part1:4722:pdf105",
+      "old": "SRCENTRY@arr@   SKX@sub_4@@sub_1@{IOA@beta@}+3",
+      "new": "SCRENTRY@arr@   SKX@sub_4@@sub_1@{IOA@beta@}+3",
+      "class": "verified"
+    },
+    {
+      "module": "io",
+      "source": "part1:4793:pdf106",
+      "old": "                @sup_1@DPX@sub_3@@sub_7@{TPK@beta@}+8",
+      "new": "                @sup_1@DPX@sub_3@@sub_7@{TPK@beta@}+8.",
+      "class": "verified"
+    },
+    {
+      "module": "io",
+      "source": "part1:4819:pdf107",
+      "old": "                @sup_1@LDA {0,,-0}",
+      "new": "                @sup_1@LDA {0,,777777777777}",
+      "class": "mechanical"
+    },
+    {
+      "module": "io",
+      "source": "part1:4864:pdf108",
+      "old": "                @sup_1@@sup_2@LDB {0,,-0}",
+      "new": "                @sup_1@@sup_2@LDB {0,,777777777777}",
+      "class": "mechanical"
+    },
+    {
+      "module": "io",
+      "source": "part1:4884:pdf108",
+      "old": "                SCF@delta@@sup@@sup_1@@sup_1@{TPK@beta@}+3@arr@@sup_1@@sup_2@{TPK@beta@},ERRS",
+      "new": "                SCF@delta@@sup@@sup_1@@sup_1@{TPK@beta@}+3@arr@@sup_1@@sup_2@{TPK@beta@}+3,ERRS",
+      "class": "verified"
+    },
+    {
+      "module": "io",
+      "source": "part1:4935:pdf110",
+      "old": "                @sup_2@@sup_1@IOS @sub_6@@sub_6@ 30000",
+      "new": "                @sup_2@@sup_1@IOS @sub_6@@sub_6@ 50000",
+      "class": "verified"
+    },
+    {
+      "module": "io",
+      "source": "part1:4964:pdf110",
+      "old": "                REX @sub_beta@ MOVING-LIST",
+      "new": "                REX @sub_beta@ MOVINGS-LIST",
+      "class": "verified"
+    },
+    {
+      "module": "io",
+      "source": "part1:5108:pdf113",
+      "old": "                JPA #+2",
+      "new": "                @sup_1@JPA #+2",
+      "class": "verified"
+    },
+    {
+      "module": "io",
+      "source": "part1:5111:pdf113",
+      "old": "                @sup_minus@@sup_1@ @sub_C@@sub_M@@sub_alpha@ NUMMON1",
+      "new": "                @sup_minus@@sup_1@JPX @sub_C@@sub_M@@sub_alpha@ NUMMON1",
+      "class": "verified"
+    },
+    {
+      "module": "io",
+      "source": "part1:5344:pdf117",
+      "old": "ZERO@arr@       4,1,,-200,-0",
+      "new": "ZERO@arr@       4,1,,-200,777777777777",
+      "class": "mechanical"
+    },
+    {
+      "module": "io",
+      "source": "part1:5396:pdf118",
+      "old": "DD@arr@         2,1,,-200,-0",
+      "new": "DD@arr@         2,1,,-200,777777777777",
+      "class": "mechanical"
+    },
+    {
+      "module": "io",
+      "source": "part1:5417:pdf119",
+      "old": "FF@arr@         3,,",
+      "new": "FF@arr@         3,",
+      "class": "verified"
+    },
+    {
+      "module": "io",
+      "source": "part1:5510:pdf120",
+      "old": "OO@arr@         4,1,,-200,-0",
+      "new": "OO@arr@         4,1,,-200,777777777777",
+      "class": "mechanical"
+    },
+    {
+      "module": "io",
+      "source": "part1:5518:pdf121",
+      "old": "                SIZE/2..SIZE/2",
+      "new": "                SIZE/2,,SIZE/2",
+      "class": "verified"
+    },
+    {
+      "module": "io",
+      "source": "part1:5520:pdf121",
+      "old": "                1..-200000",
+      "new": "                1,,-200000",
+      "class": "verified"
+    },
+    {
+      "module": "io",
+      "source": "part1:5538:pdf121",
+      "old": "QQ@arr@         5,1,,-200,-0",
+      "new": "QQ@arr@         5,1,,-200,777777777777",
+      "class": "mechanical"
+    },
+    {
+      "module": "io",
+      "source": "part1:5703:pdf124",
+      "old": "                JPQ 45RW?",
+      "new": "                JPQ 45RWUNREAD",
+      "class": "mechanical"
+    },
+    {
+      "module": "io",
+      "source": "part1:5712:pdf124",
+      "old": "                JPQ 45RW?",
+      "new": "                JPQ 45RWUNREAD",
+      "class": "mechanical"
+    },
+    {
+      "module": "io",
+      "source": "part1:5721:pdf124",
+      "old": "45SF1A@arr@     RXF @sub_5@@sub_4@ 45SIT1",
+      "new": "45SF1A@arr@     RXF @sub_5@@sub_4@ 45IT1",
+      "class": "verified"
+    },
+    {
+      "module": "io",
+      "source": "part1:5736:pdf125",
+      "old": "45RW?@arr@      SKZ 45RWSW",
+      "new": "45RWUNREAD@arr@      SKZ 45RWSW",
+      "class": "mechanical"
+    },
+    {
+      "module": "io",
+      "source": "part1:5818:pdf126",
+      "old": "45M2@arr@       @sup_1@@sup_2@RSX @sub_4@@sub_5@@sub_R@@sub_X@@sub_2@ 45MWA3",
+      "new": "45M2@arr@       @sup_1@@sup_2@RSX @sub_4@@sub_5@@sub_X@@sub_2@ 45MWA3",
+      "class": "verified"
+    },
+    {
+      "module": "io",
+      "source": "part1:5887:pdf127",
+      "old": "                JPD ?",
+      "new": "                JPD #",
+      "class": "mechanical"
+    },
+    {
+      "module": "io",
+      "source": "part1:5938:pdf128",
+      "old": "                @sup_1@SED {-0}",
+      "new": "                @sup_1@SED {777777777777}",
+      "class": "mechanical"
+    },
+    {
+      "module": "io",
+      "source": "part1:5947:pdf129",
+      "old": "                JPQ 45RW?",
+      "new": "                JPQ 45RWUNREAD",
+      "class": "mechanical"
+    },
+    {
+      "module": "io",
+      "source": "part1:6018:pdf130",
+      "old": "                JPQ ?",
+      "new": "                JPQ #",
+      "class": "mechanical"
+    },
+    {
+      "module": "io",
+      "source": "part1:6046:pdf130",
+      "old": "LIST2@arr@      SKX @sub_gamma@ ?",
+      "new": "LIST2@arr@      SKX @sub_gamma@ #",
+      "class": "mechanical"
+    },
+    {
+      "module": "io",
+      "source": "part1:6080:pdf131",
+      "old": "45EXIT@arr@     JPQ ?",
+      "new": "45EXIT@arr@     JPQ #",
+      "class": "mechanical"
+    },
+    {
+      "module": "io",
+      "source": "part1:6085:pdf131",
+      "old": "45MG3X@arr@     JPQ ?",
+      "new": "45MG3X@arr@     JPQ #",
+      "class": "mechanical"
+    },
+    {
+      "module": "io",
+      "source": "part1:6090:pdf131",
+      "old": "45MG4X@arr@     JPQ ?",
+      "new": "45MG4X@arr@     JPQ #",
+      "class": "mechanical"
+    },
+    {
+      "module": "io",
+      "source": "part1:6096:pdf131",
+      "old": "45MG5A@arr@     SKX @sub_beta@ ?",
+      "new": "45MG5A@arr@     SKX @sub_beta@ #",
+      "class": "mechanical"
+    },
+    {
+      "module": "io",
+      "source": "part1:6099:pdf131",
+      "old": "45MG5X@arr@     JPQ ?",
+      "new": "45MG5X@arr@     JPQ #",
+      "class": "mechanical"
+    },
+    {
+      "module": "io",
+      "source": "part1:6104:pdf131",
+      "old": "45MG6X@arr@     JPQ ?",
+      "new": "45MG6X@arr@     JPQ #",
+      "class": "mechanical"
+    },
+    {
+      "module": "io",
+      "source": "part1:6122:pdf132",
+      "old": "                JPQ ?",
+      "new": "                JPQ #",
+      "class": "mechanical"
+    },
+    {
+      "module": "io",
+      "source": "part1:6126:pdf132",
+      "old": "45PUTX@arr@     JPQ ?",
+      "new": "45PUTX@arr@     JPQ #",
+      "class": "mechanical"
+    },
+    {
+      "module": "io",
+      "source": "part1:6153:pdf132",
+      "old": "                SKN 45RSW",
+      "new": "                SKN 45RWSW",
+      "class": "verified"
+    },
+    {
+      "module": "io",
+      "source": "part1:6183:pdf133",
+      "old": "                JPQ ?",
+      "new": "                JPQ #",
+      "class": "mechanical"
+    },
+    {
+      "module": "io",
+      "source": "part1:6194:pdf133",
+      "old": "                RXF @sub_6@@sub_0@ ?",
+      "new": "                RXF @sub_6@@sub_0@ #",
+      "class": "mechanical"
+    },
+    {
+      "module": "io",
+      "source": "part1:6198:pdf133",
+      "old": "                JPQ ?",
+      "new": "                JPQ #",
+      "class": "mechanical"
+    },
+    {
+      "module": "io",
+      "source": "part1:6263:pdf134",
+      "old": "                h@sup_1@JNK @sub_3@@sub_4@ TX2RDCONT",
+      "new": "                h@sup_1@JNX @sub_3@@sub_4@ TX2RDCONT",
+      "class": "verified"
+    },
+    {
+      "module": "io",
+      "source": "part1:6264:pdf134",
+      "old": "TX2RD2@arr@     h@sup_3@TSD B",
+      "new": "TX2RD2@arr@     h@sup_5@TSD B",
+      "class": "inferred"
+    },
+    {
+      "module": "io",
+      "source": "Users Handbook 6-2.3 rule 3, PDF pages 159-160; Technical Manual vol.3 16-5 AOP",
+      "old": "Reference tool lacks M4 A/B/C/D/E preassignments and the AOP mnemonic",
+      "new": "A=377604; B=377605; C=377606; D=377607; E=377610; AOP=000400100000",
+      "class": "verified"
+    },
+    {
+      "module": "build",
+      "source": "part2:5073:pdf118",
+      "old": "@sup_8@SCB A",
+      "new": "@sup_2@SCB A",
+      "class": "verified"
+    },
+    {
+      "module": "build",
+      "source": "part2:5216:pdf121",
+      "old": "STA A+D",
+      "new": "STD A+D",
+      "class": "verified"
+    },
+    {
+      "module": "build",
+      "source": "part2:5274:pdf123",
+      "old": "                -0,400,,-0,400",
+      "new": "                777777777777,400,,777777777777,400",
+      "class": "mechanical"
+    },
+    {
+      "module": "build",
+      "source": "part2:5337:pdf124",
+      "old": "                MOVE|{-0,400,,-0,400}@arr@CMMASK",
+      "new": "                MOVE|{777777777777,400,,777777777777,400}@arr@CMMASK",
+      "class": "mechanical"
+    },
+    {
+      "module": "build",
+      "source": "part2:5338:pdf124",
+      "old": "                hLDE {-0,400,,-0,400}",
+      "new": "                hLDE {777777777777,400,,777777777777,400}",
+      "class": "mechanical"
+    },
+    {
+      "module": "build",
+      "source": "part2:5426:pdf126",
+      "old": "                hITE { LACE-1⋁(LACE-1/2)⋁(LACE-1/4)⋁(LACE-1/10)⋁(LACE-1/20)}",
+      "new": "                hITE { LACE-1∨(LACE-1/2)∨(LACE-1/4)∨(LACE-1/10)∨(LACE-1/20)}",
+      "class": "mechanical"
+    },
+    {
+      "module": "build",
+      "source": "part2:5780:pdf133",
+      "old": "                JPX CMGNL4AX",
+      "new": "                JPQ CMGNL4AX",
+      "class": "verified"
+    },
+    {
+      "module": "build",
+      "source": "part2:5926:pdf136",
+      "old": "                LDB {-0,,0}",
+      "new": "                LDB {777777777777,,0}",
+      "class": "mechanical"
+    },
+    {
+      "module": "build",
+      "source": "part2:6011:pdf137",
+      "old": "                LDB {-0,400,,-0,,400}",
+      "new": "                LDB {777777777777,400,,777777777777,400}",
+      "class": "verified"
+    },
+    {
+      "module": "build",
+      "source": "part2:6093:pdf139",
+      "old": "                LDB {-0,400,,-0,400}",
+      "new": "                LDB {777777777777,400,,777777777777,400}",
+      "class": "mechanical"
+    },
+    {
+      "module": "build",
+      "source": "part2:6095:pdf139",
+      "old": "                INC C",
+      "new": "                INS C",
+      "class": "verified"
+    },
+    {
+      "module": "build",
+      "source": "part2:6102:pdf139",
+      "old": "                SCNORM|LMEND1@arr@1=@sup_2@@sup_2@ LMSEND@arr@LMAG1C",
+      "new": "                SCNORM|LMEND+1@arr@1=@sup_2@@sup_2@ LMSEND@arr@LMAG1C",
+      "class": "verified"
+    },
+    {
+      "module": "build",
+      "source": "part2:6186:pdf141",
+      "old": "                SCNORM|LMSTART+1@arr@1=@sup_2@@sup_2@ LMSST-LMAG5A",
+      "new": "                SCNORM|LMSTART+1@arr@1=@sup_2@@sup_2@ LMSST@arr@LMAG5A",
+      "class": "verified"
+    },
+    {
+      "module": "build",
+      "source": "part2:6188:pdf141",
+      "old": "                SCNORM|LMEND+1@arr@1=@sup_2@@sup_2@ LMSEND-LMAG5B",
+      "new": "                SCNORM|LMEND+1@arr@1=@sup_2@@sup_2@ LMSEND@arr@LMAG5B",
+      "class": "verified"
+    },
+    {
+      "module": "build",
+      "source": "part2:6243:pdf142",
+      "old": "LMSLRT@arr@     JPQ #",
+      "new": "LMSLRX@arr@     JPQ #",
+      "class": "verified"
+    },
+    {
+      "module": "build",
+      "source": "part2:6356:pdf144",
+      "old": "                LDD {-0}",
+      "new": "                LDD {777777777777}",
+      "class": "mechanical"
+    },
+    {
+      "module": "build",
+      "source": "part2:6357:pdf144",
+      "old": "                AOP 66000",
+      "new": "                AOP+66000",
+      "class": "mechanical"
+    },
+    {
+      "module": "build",
+      "source": "part2:6371:pdf144",
+      "old": "                MUL {-26415202030.}",
+      "new": "                MUL {-26413202030.}",
+      "class": "verified"
+    },
+    {
+      "module": "build",
+      "source": "part2:6384:pdf144",
+      "old": "                AOP 67000",
+      "new": "                AOP+67000",
+      "class": "mechanical"
+    },
+    {
+      "module": "build",
+      "source": "part2:6393:pdf144",
+      "old": "                AOP 67000",
+      "new": "                AOP+67000",
+      "class": "mechanical"
+    },
+    {
+      "module": "build",
+      "source": "part2:6532:pdf147",
+      "old": "                LDB {-0}",
+      "new": "                LDB {777777777777}",
+      "class": "mechanical"
+    },
+    {
+      "module": "build",
+      "source": "part2:6546:pdf147",
+      "old": "                -40,-0,,100,0",
+      "new": "                -40,777777777777,,100,0",
+      "class": "mechanical"
+    },
+    {
+      "module": "build",
+      "source": "part2:6549:pdf147",
+      "old": "                -40,-0,,0,0",
+      "new": "                -40,777777777777,,0,0",
+      "class": "mechanical"
+    },
+    {
+      "module": "build",
+      "source": "part2:6552:pdf147",
+      "old": "                -100,-0,,100,0",
+      "new": "                -100,777777777777,,100,0",
+      "class": "mechanical"
+    },
+    {
+      "module": "build",
+      "source": "part2:6596:pdf148",
+      "old": "                MKN PLPBUSY",
+      "new": "                MKN PLPUBUSY",
+      "class": "verified"
+    },
+    {
+      "module": "build",
+      "source": "part2:6613:pdf148",
+      "old": "                @sup_1@SED {-0}",
+      "new": "                @sup_1@SED {777777777777}",
+      "class": "mechanical"
+    },
+    {
+      "module": "build",
+      "source": "part2:6720:pdf150",
+      "old": "                ħ@sup_1@JNX @sub_P@@sub_L@@sub_P@ PLPIT",
+      "new": "                ℏ@sup_1@JNX @sub_P@@sub_L@@sub_P@ PLPIT",
+      "class": "mechanical"
+    },
+    {
+      "module": "build",
+      "source": "part2:6895:pdf154",
+      "old": "                2DPX @sub_P@@sub_L@@sub_S@ PLIOSBITS",
+      "new": "                @sup_2@DPX @sub_P@@sub_L@@sub_S@ PLIOSBITS",
+      "class": "verified"
+    },
+    {
+      "module": "build",
+      "source": "part2:6667:pdf149 PDF149 clipped bottom; inferred from part2:6620 and 6675–6680",
+      "old": "Transcription omits the next instruction",
+      "new": "SKX @sub_P@@sub_L@@sub_P@ PLTABLE-1",
+      "class": "inferred"
+    },
+    {
+      "module": "build",
+      "source": "Users Handbook 6-2.3 rule 3, PDF pages 159-160; Technical Manual vol.3 16-5 AOP",
+      "old": "Reference tool lacks M4 A/B/C/D/E preassignments and the AOP mnemonic",
+      "new": "A=377604; B=377605; C=377606; D=377607; E=377610; AOP=000400100000",
+      "class": "verified"
+    }
+  ],
+  "files_sha256": {
+    "sketchpad.hex": "b8ee263a5f5107048825aa631704def221d5e567e2482f1779cdc3ec3871f005",
+    "sketchpad.tape": "abeae0f9669dca8a9f6943672d4a70d1173b5a715acfe67a54b2a53ccee7ddc7"
+  },
+  "inputs_sha256": {
+    "upstream/Sketchpad/sk.tx2as": "7f2fb43208604c0551af08f32f7558aaba89563dfa98d9630d22238fc39ca255",
+    "upstream/Sketchpad/sk2.tx2as": "84b9dd07b99211edd5988fceb9cad7d06fa034a733a90da7be32acdd036e50e2",
+    "tools/sketchpad-assembler.patch": "ea9955d13f350382cccd3f7037684dd1203dea1460ba4da839a8ab34e0320cc1",
+    "tools/prepare_sketchpad.py": "b04152141a337a9def8cb1748e905ff51deaa9413113cffa317ca3b66bcfd31e"
+  }
+}

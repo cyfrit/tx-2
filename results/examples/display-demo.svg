@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="700" viewBox="0 0 640 700">
+<rect width="640" height="700" fill="#101911"/>
+<text x="32" y="34" fill="#b8e9a9" font-family="sans-serif" font-size="18">TX-2 RTL — paper-booted display diagnostic</text>
+<rect x="32" y="58" width="576" height="576" rx="16" stroke="#446a3b" fill="#071208"/>
+<path d="M320 70V620M44 346H596" stroke="#18371c" stroke-width="1"/>
+<circle cx="187.40" cy="478.60" r="9" fill="#88f46e" opacity=".12"/>
+<circle cx="187.40" cy="478.60" r="3" fill="#bcff91"/>
+<text x="199.40" y="470.60" fill="#93b889" font-family="monospace" font-size="12">1: (-255, -255)</text>
+<circle cx="452.60" cy="478.60" r="9" fill="#88f46e" opacity=".12"/>
+<circle cx="452.60" cy="478.60" r="3" fill="#bcff91"/>
+<text x="464.60" y="470.60" fill="#93b889" font-family="monospace" font-size="12">2: (255, -255)</text>
+<circle cx="452.60" cy="213.40" r="9" fill="#88f46e" opacity=".12"/>
+<circle cx="452.60" cy="213.40" r="3" fill="#bcff91"/>
+<text x="464.60" y="205.40" fill="#93b889" font-family="monospace" font-size="12">3: (255, 255)</text>
+<circle cx="187.40" cy="213.40" r="9" fill="#88f46e" opacity=".12"/>
+<circle cx="187.40" cy="213.40" r="3" fill="#bcff91"/>
+<text x="199.40" y="205.40" fill="#93b889" font-family="monospace" font-size="12">4: (-255, 255)</text>
+<text x="32" y="665" fill="#b8e9a9" font-family="sans-serif" font-size="14">4 display events · light-pen handler: RAM counter = 1</text>
+<text x="32" y="687" fill="#819d79" font-family="sans-serif" font-size="12">Own diagnostic program; event positions are RTL outputs. Not Sketchpad.</text>
+</svg>

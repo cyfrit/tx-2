@@ -1,0 +1,24 @@
+{
+  "collection_date": "2026-11-10",
+  "pdf_files": 60,
+  "pdf_pages": 5346,
+  "poster_images": 3,
+  "downloaded_bytes": 628446793,
+  "distinct_sha256": 63,
+  "groups": {
+    "core": 16,
+    "user-memos": 5,
+    "hardware-and-precursors": 6,
+    "early-progress-reports": 14,
+    "drawing-index": 1,
+    "graphics-reports": 13,
+    "peripherals": 1,
+    "later-memory": 1,
+    "graphics-hardware": 1,
+    "reference-posters": 3,
+    "historical-source-listings": 2
+  },
+  "archive_page_ocr_pairings": 8,
+  "cataloged_progress_report_links": 82,
+  "note": "Counts include alternative scans and editions of the same work; text availability is not a claim of OCR accuracy or complete reading."
+}

@@ -1,0 +1,23 @@
+** Paper-booted display/light-pen integration diagnostic, authored 2026.
+** Four signed 10-bit coordinate pairs; this is not Sketchpad software.
+100|         REX₆₀ DRAW
+             REX₅₅ HIT
+              IOS₅₅ 30000
+            ¹SKX₁ 3
+           ²¹IOS₆₀ 30320
+DRAW->        TSD₁ POINTS+3
+            ¹JNX₁ DRAW
+              IOS₅₅ 20000
+              IOS₆₀ 20000
+              0
+HIT->         LDA HITS
+              ADD ONE
+              STA HITS
+            ²⁰SKX₅ 0
+HITS->        0
+ONE->         1
+POINTS->     200000200000
+             577400200000
+             577400577400
+             200000577400
+☛☛PUNCH 100

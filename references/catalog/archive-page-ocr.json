@@ -1,0 +1,58 @@
+[
+  {
+    "id": "TX-2_TechManVol3_Jul61",
+    "archive_page_index_path": "references/page-index/TX-2_TechManVol3_Jul61.archive-ocr.jsonl",
+    "archive_page_text_path": "references/text/TX-2_TechManVol3_Jul61.archive-page-ocr.txt",
+    "ocr_pages": 154,
+    "mapping_check": "Original PDF MD5 matches IA metadata; PDF page count equals OCR OBJECT count"
+  },
+  {
+    "id": "TX-2_UsersHandbook_Nov63",
+    "archive_page_index_path": "references/page-index/TX-2_UsersHandbook_Nov63.archive-ocr.jsonl",
+    "archive_page_text_path": "references/text/TX-2_UsersHandbook_Nov63.archive-page-ocr.txt",
+    "ocr_pages": 211,
+    "mapping_check": "Original PDF MD5 matches IA metadata; PDF page count equals OCR OBJECT count"
+  },
+  {
+    "id": "TX-2_TechManVol2_Jun61",
+    "archive_page_index_path": "references/page-index/TX-2_TechManVol2_Jun61.archive-ocr.jsonl",
+    "archive_page_text_path": "references/text/TX-2_TechManVol2_Jun61.archive-page-ocr.txt",
+    "ocr_pages": 421,
+    "mapping_check": "Original PDF MD5 matches IA metadata; PDF page count equals OCR OBJECT count"
+  },
+  {
+    "id": "TX-2_Papers_WJCC_57",
+    "archive_page_index_path": "references/page-index/TX-2_Papers_WJCC_57.archive-ocr.jsonl",
+    "archive_page_text_path": "references/text/TX-2_Papers_WJCC_57.archive-page-ocr.txt",
+    "ocr_pages": 79,
+    "mapping_check": "Original PDF MD5 matches IA metadata; PDF page count equals OCR OBJECT count"
+  },
+  {
+    "id": "TX-2_ProgExamp",
+    "archive_page_index_path": "references/page-index/TX-2_ProgExamp.archive-ocr.jsonl",
+    "archive_page_text_path": "references/text/TX-2_ProgExamp.archive-page-ocr.txt",
+    "ocr_pages": 28,
+    "mapping_check": "Original PDF MD5 matches IA metadata; PDF page count equals OCR OBJECT count"
+  },
+  {
+    "id": "A_Computer-Integrated_Rapid_Access_Magnetic_Tape_System_with_Fixed_Address",
+    "archive_page_index_path": "references/page-index/A_Computer-Integrated_Rapid_Access_Magnetic_Tape_System_with_Fixed_Address.archive-ocr.jsonl",
+    "archive_page_text_path": "references/text/A_Computer-Integrated_Rapid_Access_Magnetic_Tape_System_with_Fixed_Address.archive-page-ocr.txt",
+    "ocr_pages": 5,
+    "mapping_check": "Original PDF MD5 matches IA metadata; PDF page count equals OCR OBJECT count"
+  },
+  {
+    "id": "TX-2_Circuitry",
+    "archive_page_index_path": "references/page-index/TX-2_Circuitry.archive-ocr.jsonl",
+    "archive_page_text_path": "references/text/TX-2_Circuitry.archive-page-ocr.txt",
+    "ocr_pages": 217,
+    "mapping_check": "Original PDF MD5 matches IA metadata; PDF page count equals OCR OBJECT count"
+  },
+  {
+    "id": "TX-2_UserHandbook_ch3",
+    "archive_page_index_path": "references/page-index/TX-2_UserHandbook_ch3.archive-ocr.jsonl",
+    "archive_page_text_path": "references/text/TX-2_UserHandbook_ch3.archive-page-ocr.txt",
+    "ocr_pages": 66,
+    "mapping_check": "Original PDF MD5 matches IA metadata; PDF page count equals OCR OBJECT count"
+  }
+]

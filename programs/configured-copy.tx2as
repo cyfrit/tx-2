@@ -1,0 +1,78 @@
+** Executable restoration milestone: authentic TX-2 instruction encodings.
+** Exercises configuration, partial transfers, both loop signs, deferred
+** indexing, V-register aliases and T memory. Undefined opcode 00 stops
+** with OCSAL; it is intentionally not a fictional halt instruction.
+FIRST = 100
+FIRST|       SPG FC0
+            ⁴SPG FC1
+           ¹⁰SPG FC2
+             LDA SEED
+            ¹LDA VALUE
+             STA RESULT
+            ¹STA PARTIAL
+             LDB VALUE
+            ²STB PERMUTED
+           ¹³LDC SINGLE
+             REX₁ 2
+BACKWARD->   LDD₁ TABLE
+             STD₁ BACK
+           ³⁶JPX₁ BACKWARD
+            ¹SKX₁ 2
+FORWARD->    LDD₁ TABLE+2
+             STD₁ AHEAD+2
+            ¹JNX₁ FORWARD
+             REX₂ 1
+             REX₃ 2
+             LDD₂ *PTR
+             STD INDIRECT
+             RSX₃ INDEXVAL
+             AUX₃ INDEXVAL
+             DPX₃ INDEXOUT
+            ¹SKX₂ 4
+             LDA₂ 4
+             STA ZEROOUT
+             LDA SEED
+            ²STA 377604
+             LDB 377604
+            ³LDE VALUE
+             STE EOUT
+             JPS₃ SUBROUTINE
+             STA CALLOUT
+             STA 200000
+             LDD 200000
+           ³⁷SPG FCWRAP
+             STOP
+SUBROUTINE-> LDA VALUE
+             BRC₃ 0
+
+STOP = 0
+0|           765432123456
+400| FC0->   760342340000
+FC1->        410763762761
+FC2->        160142140411
+FCWRAP->     123456701234
+SEED->       111222333444
+VALUE->      555666777000
+SINGLE->     123456701400
+TABLE->      101102103104
+             201202203204
+             301302303304
+PTR->        000003000416
+INDEXVAL->   000000000002
+421|         405406407410
+500| RESULT->   0
+PARTIAL->       123456101202
+PERMUTED->      010020030040
+BACK->          0
+                0
+                0
+AHEAD->         0
+                0
+                0
+INDIRECT->      0
+INDEXOUT->      0
+ZEROOUT->       0
+EOUT->          0
+CALLOUT->       0
+200000|         0
+☛☛PUNCH 100

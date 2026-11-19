@@ -1,0 +1,26 @@
+** Boot this through the physical plugboard program, not a host preload.
+** Explicit one's-complement SKX avoids a negative literal defer ambiguity.
+100|         REX₆₆ OUTPUT
+           ²¹IOS₆₆ 30000
+OUTPUT->    ¹SKX₁ 2
+LOOP->      ⁶TSD W0
+            ⁵TSD W0
+            ⁴TSD W0
+            ³TSD W0
+            ⁶TSD W1
+            ⁵TSD W1
+            ⁴TSD W1
+            ³TSD W1
+            ⁶TSD W2
+            ⁵TSD W2
+            ⁴TSD W2
+            ³TSD W2
+            ⁶TSD W3
+            ¹JNX₁ LOOP
+             IOS₆₆ 20000
+             0
+W0->         027024033033
+W1->         036056070046
+W2->         036041033023
+W3->         060000000000
+☛☛PUNCH 100

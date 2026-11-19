@@ -1,0 +1,17 @@
+/build/
+/upstream/
+/work/
+/references/pdfs/
+/references/text/
+/references/page-index/
+/references/*_djvu.txt
+# Keep raw collection responses and intermediate caches local.
+/references/catalog/*
+!/references/catalog/archive-page-ocr.json
+!/references/catalog/bibliography.csv
+!/references/catalog/collection-summary.json
+!/references/catalog/manifest.json
+!/references/catalog/progress-report-inventory.json
+/results/*
+!/results/examples/
+__pycache__/
