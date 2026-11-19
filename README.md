@@ -2,7 +2,7 @@
 
 A Verilog recreation of MIT Lincoln Laboratory's 36-bit TX-2 computer, with a native command-line simulator and a WebAssembly console.
 
-[Open the browser emulator](https://cyfrit.github.io/tx2/)
+[Open the browser emulator](https://tx-2.cli.tf/)
 
 ![TX-2 browser console showing Sketchpad's INK startup display on the CRT beside the light-pen controls](results/examples/sketchpad-ink.png)
 
