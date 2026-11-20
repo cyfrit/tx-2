@@ -4,6 +4,8 @@ A Verilog recreation of MIT Lincoln Laboratory's 36-bit TX-2 computer, with a na
 
 [Open the browser emulator](https://tx-2.cli.tf/)
 
+The **GitHub** badge in the console header links back to this repository.
+
 ![TX-2 browser console showing Sketchpad's INK startup display on the CRT beside the light-pen controls](results/examples/sketchpad-ink.png)
 
 *The INK startup screen of Ivan Sutherland's 1963 Sketchpad, rendered from the program's CRT output.*

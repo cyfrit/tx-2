@@ -18,6 +18,9 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .sub { font-size: 10px; letter-spacing: .25em; color: var(--silk-dim); }
 .status { display: flex; align-items: center; gap: 8px; flex: 1; min-width: 0; font-family: var(--mono); font-size: 12px; overflow: hidden; white-space: nowrap; }
 .bar-actions { display: flex; gap: 6px; }
+.github-badge { display: inline-flex; align-items: center; justify-content: center; flex: none; gap: 6px; min-width: 28px; min-height: 28px; padding: 0 7px; border: 1px solid var(--silk-dim); border-radius: 3px; color: var(--silk); font: 600 11px/1 var(--sans); text-decoration: none; }
+.github-badge:hover, .github-badge:focus-visible { background: var(--enamel-lo); }
+.github-badge:focus-visible { outline: 2px solid var(--silk); outline-offset: 2px; }
 .readout { font-family: var(--mono); padding: 2px 6px; background: #0d110f; border: 1px solid #000; border-radius: 2px; color: #ffcf7a; box-shadow: inset 0 1px 3px #000; }
 .readout.dim { color: var(--silk-dim); }
 .readout.small { font-size: 11px; }
@@ -149,15 +152,27 @@ table.blocks td, table.blocks th { padding: 2px 8px; border-bottom: 1px solid #f
   .deck { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto minmax(0, 1fr); padding: 6px; gap: 6px; }
   .scope-bay { width: min(100%, calc(48dvh - 30px)); margin: 0 auto; }
   .bezel { padding: 6px; border-radius: 10px; }
-  .sub, .bar .readout.dim { display: none; }
+  .key { padding: 6px 8px; }
+  .pages { padding: 8px; }
+}
+@media (max-aspect-ratio: 1/1), (max-width: 640px) {
+  .bar .readout.dim { display: none; }
   .bar { gap: 6px; padding: 5px 6px; }
   .status { gap: 5px; font-size: 11px; }
   .bar-actions .key { padding: 5px 6px; font-size: 10px; }
   .plate { font-size: 16px; }
-  .key { padding: 6px 8px; }
-  .pages { padding: 8px; }
+}
+@media (max-aspect-ratio: 1/1), (max-width: 800px) {
+  .sub { display: none; }
+}
+@media (max-width: 440px) {
+  .bar { flex-wrap: wrap; }
+  .bar-actions { margin-left: auto; }
+  .status { order: 1; flex-basis: 100%; }
 }
 @media (max-width: 520px) {
+  .github-badge { padding: 0 5px; }
+  .github-badge span { display: none; }
   .lamprow { display: none; }
   .regs { grid-template-columns: auto 1fr; }
   .tg { width: 13px; height: 22px; }
