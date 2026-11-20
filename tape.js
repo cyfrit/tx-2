@@ -135,6 +135,7 @@ export class TapePanel {
     this.library = await (await fetch('tapes/index.json')).json();
     this.libraryBox.replaceChildren(...this.library.map(t => el('div', {class: 'tape-card'},
       el('div', {class: 'kind'}, `${t.kind} · ${t.lines.toLocaleString()} lines`), el('h4', {}, t.title), el('p', {}, t.note),
+      t.reference && el('p', {}, el('a', {href: t.reference}, 'Original program listing')),
       el('div', {class: 'row'},
         el('button', {class: 'key small', onclick: () => this.loadEntry(t, false)}, 'Load'),
         el('button', {class: 'key small', onclick: () => this.loadEntry(t, true)}, 'Load and start')))));

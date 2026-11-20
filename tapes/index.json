@@ -32,6 +32,17 @@
     "sha256": "abeae0f9669dca8a9f6943672d4a70d1173b5a715acfe67a54b2a53ccee7ddc7"
   },
   {
+    "id": "inchworm",
+    "title": "Inchworm · 1958",
+    "tsp": "377750",
+    "kind": "Historical program adapted for paper tape",
+    "reference": "https://bitsavers.org/pdf/mit/tx-2/6M-5780_Some_Examples_of_TX-2_Programming_Jul1958.pdf#page=7",
+    "note": "H. Philip Peterson’s seven-word routine copies itself through core memory, then jumps back and starts again. The tape loads its original switch-register startup routine into T memory. No CRT output; watch P in the header.",
+    "file": "tapes/inchworm.tape",
+    "lines": 252,
+    "sha256": "baec263742518b90173a29e043a26a84772a4058d8e944a1cd56fd160dad1794"
+  },
+  {
     "id": "upstream-hello",
     "title": "HELLO · TX-2 Project example tape",
     "tsp": "377750",
