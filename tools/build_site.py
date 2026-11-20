@@ -21,6 +21,11 @@ LIBRARY = [
      'kind': 'Historical program reconstructed from listings', 'template': 'sketchpad', 'suppress': '200',
      'note': 'Ivan Sutherland\'s original program, transcribed and reconstructed from CHM listings. Changes are recorded individually in manifest.json. Startup displays INK; aim the light pen at INK to begin tracking. '
              'The program selects devices absent from this machine. Startup automatically suppresses IOSAL, as shown in the console alarm panel.'},
+    {'id': 'inchworm', 'title': 'Inchworm · 1958', 'source': 'programs/inchworm.tape', 'tsp': '377750',
+     'kind': 'Historical program adapted for paper tape',
+     'reference': 'https://bitsavers.org/pdf/mit/tx-2/6M-5780_Some_Examples_of_TX-2_Programming_Jul1958.pdf#page=7',
+     'note': 'H. Philip Peterson’s seven-word routine copies itself through core memory, then jumps back and starts again. '
+             'The tape loads its original switch-register startup routine into T memory. No CRT output; watch P in the header.'},
     {'id': 'upstream-hello', 'title': 'HELLO · TX-2 Project example tape', 'source': 'upstream/TX-2-simulator/examples/hello.tape',
      'tsp': '377750', 'kind': 'Upstream tape', 'fix': True,
      'note': 'Tape supplied by TX-2-simulator. After tx2tape fix relinks blocks and recomputes checksums, it boots through the original plugboard.'},

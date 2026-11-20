@@ -1,0 +1,23 @@
+# Program II, The Inchworm, H. Philip Peterson, 6M-5780 (1958), sheet 6a.
+# https://bitsavers.org/pdf/mit/tx-2/6M-5780_Some_Examples_of_TX-2_Programming_Jul1958.pdf#page=9
+# Tape edition: relocate the 16 switch words into T memory so the paper-tape
+# reader can load them. Rebase the displacement in the first word accordingly.
+# E is at 377610, and SKN is 30 SKM (plus hold) on the 1963 TX-2.
+# Base 207750, entry 207752. Rebuild from the repository root:
+# python3 tools/tx2tape.py words programs/inchworm.tape 207750 --start 207752 $(grep -v '^#' programs/inchworm.words)
+577760570023
+000000000362
+342100207751
+011102207750
+021103207750
+741171207762
+402071207763
+701762377610
+411502377610
+403071000007
+410771207756
+700603207752
+411102207761
+011502377610
+013000000005
+000500000001

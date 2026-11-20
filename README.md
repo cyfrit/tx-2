@@ -22,6 +22,8 @@ make browser
 2. Under **Paper tape**, find **Sketchpad · 1963** and select **Load and start**. Wait for INK to appear on the CRT.
 3. Open **Inputs** and select **Aim at INK**. Move the pointer over the CRT and click to draw. Press **M** to stop drawing or **Esc** to lift the pen.
 
+For **Inchworm · 1958**, select **Load and start** in the same tape library. The program copies itself through core memory without drawing to the CRT. Watch the octal **P** (program counter) in the console header, or use **STEP** to follow individual instructions.
+
 ## Scope
 
 The model covers the 36-bit instruction set, sequence control, memory, and device I/O. The browser console exposes the CRT, light pen, paper tape, and Lincoln Writer, among other peripherals. The recreation targets functional behavior. Pulse-level timing and FPGA deployment remain future work.
