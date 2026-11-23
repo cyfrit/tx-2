@@ -69,6 +69,13 @@ devices: cli
 	for t in rtlio writers paperplot printanalog magtape; do python3 tools/test_dev_$$t.py || exit 1; done
 	python3 tools/test_sketchpad_functions.py
 
+.PHONY: digits digits-check
+digits:
+	python3 tools/build_digits.py $(if $(TX2_ASSEMBLER),--assembler "$(TX2_ASSEMBLER)")
+
+digits-check: cli
+	python3 tools/test_digits.py
+
 wasm:
 	python3 tools/build_wasm.py
 

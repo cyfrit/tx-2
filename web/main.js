@@ -37,8 +37,9 @@ let state = null, inputs = null, tape = null, running = false, paused = false;
 const scope = new Scope({
   beam: $('#beam'), glow: $('#glow'), overlay: $('#overlay'), settings,
   onPen: (x, y, down) => { machine.pen(x, y, down); $('#pen-toggle').textContent = down ? 'Light pen ▼' : 'Light pen ▲'; $('#pen-toggle').classList.toggle('lit', down); },
-  onTap: () => { if (inputs?.template) inputs.whenPenArrives(() => inputs.tap(7, 80000, 80000)); },
+  onTap: () => { if (inputs?.templateId === 'sketchpad') inputs.whenPenArrives(() => inputs.tap(7, 80000, 80000)); },
 });
+scope.cancelPen = () => machine.config({penReset: true});
 const con = new Console(tabs.console.page, {machine, settings, save, toast});
 tape = new TapePanel(tabs.tape.page, {machine, toast, onLibraryLoad: async (entry, start) => {
   inputs.setTemplate(entry.template);
@@ -83,9 +84,13 @@ function dataURLToBlob(url) { const b = atob(url.split(',')[1]); return new Blob
 // Keyboard: template keys and pen, unless typing into a field or the typewriter paper.
 addEventListener('keydown', e => {
   if (e.repeat || e.ctrlKey || e.metaKey || e.altKey || e.target.closest('input,textarea,select,.paper')) return;
-  if (e.key === 'Escape') scope.setPen(false);
-  const keys = {d: 7, m: 5, c: 6};
-  if (inputs.template && keys[e.key.toLowerCase()] !== undefined) inputs.tap(keys[e.key.toLowerCase()], 80000);
+  if (e.key === 'Escape') { scope.setPen(false); scope.cancelPen(); }
+  const bit = inputs.template?.shortcuts[e.key.toLowerCase()];
+  if (bit !== undefined) {
+    e.preventDefault();
+    if (inputs.templateId === 'digits') inputs.whenPenArrives(() => inputs.tap(bit, 80000));
+    else inputs.tap(bit, 80000);
+  }
 });
 
 // Machine state from the worker

@@ -17,6 +17,9 @@ LIBRARY = [
      'kind': 'Modern example', 'note': 'Printing program assembled with this project\'s M4 assembler. Lincoln Writer prints three lines of HELLO, WORLD.'},
     {'id': 'display-demo', 'title': 'Display and light-pen diagnostic', 'source': 'programs/display-demo.tape', 'tsp': '377750',
      'kind': 'Modern example', 'note': 'Draws four points on the CRT. Sequence 55 increments a counter when the light pen detects a bright point.'},
+    {'id': 'digits', 'title': 'Handwritten Digits · Neural network', 'source': 'programs/digits.tape',
+     'tsp': '377750', 'kind': 'Modern program', 'template': 'digits',
+     'note': 'Wait for the dot grid, then hold and drag the light pen to write one digit. Press Enter to recognize or Delete to clear. The TX-2 runs a 64 → 32 → 10 neural network and draws the result at the right of the CRT.'},
     {'id': 'sketchpad', 'title': 'Sketchpad · 1963', 'source': 'programs/sketchpad/sketchpad.tape', 'tsp': '377750',
      'kind': 'Historical program reconstructed from listings', 'template': 'sketchpad', 'suppress': '200',
      'note': 'Ivan Sutherland\'s original program, transcribed and reconstructed from CHM listings. Changes are recorded individually in manifest.json. Startup displays INK; aim the light pen at INK to begin tracking. '

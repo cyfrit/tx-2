@@ -1,0 +1,305 @@
+** DIGITS: handwritten digit recognition on the 36-bit TX-2.
+** Paper boot enters sequence 00 at 100; sequence 60 refreshes the CRT and
+** runs inference; the higher-priority sequence 55 records light-pen hits.
+** Register 377621 (pushbutton box): 1.1 = recognize, 1.2 = clear.
+** X6 indexes the sweep; X1/X2/X4 handle loops; X3 links subroutines.
+** Weight and display tables are appended by tools/build_digits.py.
+
+** Scratch arrays in S memory (initialized before use, omitted from tape).
+BITMAP = 1000
+FEATURES = 1400
+HIDDEN = 1500
+SCORES = 1540
+RESULT = 1552
+
+100|         REX₅₅ HIT
+             REX₆₀ INIT
+             IOS₅₅ 30000
+           ²¹IOS₆₀ 30300
+
+INIT->       LDA ZERO
+             STA OLDKEY
+             STA CAPTURE
+             JMP CLEAR
+
+** Poll once per CRT refresh. Clear has priority if both keys are held.
+POLL->       LDA 377621
+             ITA KEYMASK
+             STA KEY
+             SUB OLDKEY
+             JPA KEYEDGE
+             JNA KEYEDGE
+             JMP GRIDSTART
+KEYEDGE->    LDA KEY
+             STA OLDKEY
+             SUB ONE
+             JPA CLEAR
+             LDA KEY
+             JPA RECOGNIZE
+             JMP GRIDSTART
+
+CLEAR->      LDA NONE
+             STA RESULT
+             LDA ZERO
+            ¹SKX₁ 377
+ERASE->      STA₁ BITMAP+377
+            ¹JNX₁ ERASE
+
+** The pen pulse for a transferred spot reaches sequence 55 before the
+** sweep advances X6. Dim spots locate the pen; bright spots show stored ink.
+GRIDSTART->  LDA ONE
+             STA CAPTURE
+            ¹SKX₆ 377
+GRIDLOOP->   LDA₆ BITMAP+377
+             JPA INK
+             IOS₆₀ 30300
+             JMP PLOT
+INK->        IOS₆₀ 30330
+PLOT->       TSD₆ GRID+377
+            ¹JNX₆ GRIDLOOP
+             LDA ZERO
+             STA CAPTURE
+
+** Display the selected glyph at the right of the CRT. Blank needs no glyph.
+             LDA RESULT
+             JNA POLL
+             RSX₄ RESULT
+             LDA₄ GLYPHS
+             STA GLYPHPTR
+             IOS₆₀ 30330
+DRAWGLYPH->  LDA *GLYPHPTR
+             JPA GLYPHDOT
+             JNA GLYPHDOT
+             JMP POLL
+GLYPHDOT->   TSD *GLYPHPTR
+             LDA GLYPHPTR
+             ADD ONE
+             STA GLYPHPTR
+             JMP DRAWGLYPH
+
+HIT->        STA SAVEA
+             LDA CAPTURE
+             JPA SETINK
+             JMP HITDONE
+SETINK->     STA₆ BITMAP+377
+HITDONE->    LDA SAVEA
+           ²⁰JMP HIT
+
+** Find the occupied bounds; a negative width indicates a blank bitmap.
+RECOGNIZE->  LDA FIFTEEN
+             STA XMIN
+             STA YMIN
+             LDA ZERO
+             STA XMAX
+             STA YMAX
+            ¹SKX₁ 377
+BOUNDS->     LDA₁ BITMAP+377
+             JPA EXPAND
+NEXTBOUND-> ¹JNX₁ BOUNDS
+             LDA XMAX
+             SUB XMIN
+             ADD ONE
+             JNA NORESULT
+             STA WIDTH
+             LDA YMAX
+             SUB YMIN
+             ADD ONE
+             STA HEIGHT
+             SUB WIDTH
+             JPA TALLER
+             LDA WIDTH
+             JMP SETSPAN
+TALLER->     LDA HEIGHT
+SETSPAN->    STA SPAN
+             SUB WIDTH
+             ADD ONE
+             STA PADX
+             LDA SPAN
+             SUB HEIGHT
+             ADD ONE
+             STA PADY
+             JMP RESAMPLE
+NORESULT->   LDA NONE
+             STA RESULT
+             JMP GRIDSTART
+
+EXPAND->     JPS₃ PIXELXY
+             LDA COL
+             SUB XMIN
+             JNA MINX
+TRYMAXX->    LDA COL
+             SUB XMAX
+             JPA MAXX
+TRYMINY->    LDA ROW
+             SUB YMIN
+             JNA MINY
+TRYMAXY->    LDA ROW
+             SUB YMAX
+             JPA MAXY
+             JMP NEXTBOUND
+MINX->       LDA COL
+             STA XMIN
+             JMP TRYMAXX
+MAXX->       LDA COL
+             STA XMAX
+             JMP TRYMINY
+MINY->       LDA ROW
+             STA YMIN
+             JMP TRYMAXY
+MAXY->       LDA ROW
+             STA YMAX
+             JMP NEXTBOUND
+
+** Fit the bounding box into 8x8, without changing aspect ratio. Each set
+** cell votes for the bin containing its center; repeated votes stay binary.
+RESAMPLE->   LDA ZERO
+            ¹SKX₁ 77
+ZEROFEAT->   STA₁ FEATURES+77
+            ¹JNX₁ ZEROFEAT
+            ¹SKX₁ 377
+MAPLOOP->    LDA₁ BITMAP+377
+             JPA MAPINK
+MAPNEXT->   ¹JNX₁ MAPLOOP
+             JMP LAYERONE
+MAPINK->     JPS₃ PIXELXY
+             LDA COL
+             SUB XMIN
+             ADD 377604
+             ADD PADX
+             SCA LEFTTWO
+             JPS₃ BIN
+             DPX₂ FCOL
+             LDA ROW
+             SUB YMIN
+             ADD 377604
+             ADD PADY
+             SCA LEFTTWO
+             JPS₃ BIN
+             DPX₂ FROW
+             LDA FROW
+             SCA LEFTTHREE
+             ADD FCOL
+             STA FINDEX
+             RSX₂ FINDEX
+             LDA ONE
+             STA₂ FEATURES
+             JMP MAPNEXT
+
+** Convert X1 (-255..0) into source row and column.
+PIXELXY->    DPX₁ CELL
+             LDA CELL
+             ADD N255
+             STA CELL
+             ITA FIFTEEN
+             STA COL
+             LDA CELL
+             SCA RIGHTFOUR
+             STA ROW
+             BRC₃ 0
+
+** A = nonnegative numerator; return floor(A/SPAN) in X2 (0..7).
+BIN->        REX₂ 0
+DIVLOOP->    SUB SPAN
+             JNA DIVDONE
+             AUX₂ ONE
+             JMP DIVLOOP
+DIVDONE->    BRC₃ 0
+
+** Dense 64 -> 32 ReLU. Binary features let us add only selected weights.
+LAYERONE->   REX₂ WEIGHTONE+77
+            ¹SKX₄ 37
+NODEONE->    DPX₂ WPTR
+             LDA₄ BIASONE+37
+             STA SUM
+            ¹SKX₁ 77
+DOTONE->     LDA₁ FEATURES+77
+             JPA ADDWEIGHT
+NEXTONE->   ¹JNX₁ DOTONE
+             LDA SUM
+             JNA RELUZERO
+SAVEHIDDEN-> STA₄ HIDDEN+37
+             AUX₂ N64
+            ¹JNX₄ NODEONE
+             JMP LAYERTWO
+ADDWEIGHT->  LDA SUM
+             ADD₁ *WPTR
+             STA SUM
+             JMP NEXTONE
+RELUZERO->   LDA ZERO
+             JMP SAVEHIDDEN
+
+** Dense 32 -> 10. TX-2 MUL yields twice the product in B for these
+** magnitudes. The tape stores twice the output bias to match that scale.
+LAYERTWO->   REX₂ WEIGHTTWO+37
+            ¹SKX₄ 11
+NODETWO->    DPX₂ WPTR
+             LDA₄ BIASTWO+11
+             STA SUM
+            ¹SKX₁ 37
+DOTTWO->     LDA₁ HIDDEN+37
+             JPA MULTWEIGHT
+NEXTTWO->   ¹JNX₁ DOTTWO
+             LDA SUM
+             STA₄ SCORES+11
+             AUX₂ N32
+            ¹JNX₄ NODETWO
+
+** Strict comparison retains the smaller digit on a tie.
+             LDA SCORES
+             STA BEST
+             LDA ZERO
+             STA RESULT
+            ¹SKX₄ 10
+ARGMAX->     LDA₄ SCORES+11
+             SUB BEST
+             JPA NEWBEST
+NEXTSCORE-> ¹JNX₄ ARGMAX
+             JMP GRIDSTART
+NEWBEST->    LDA₄ SCORES+11
+             STA BEST
+             DPX₄ CELL
+             LDA CELL
+             ADD N9
+             STA RESULT
+             JMP NEXTSCORE
+MULTWEIGHT-> MUL₁ *WPTR
+             LDA SUM
+             ADD 377605
+             STA SUM
+             JMP NEXTTWO
+
+ZERO->       0
+ONE->        1
+NONE->       777777777776
+KEYMASK->    3
+FIFTEEN->    17
+N255->       377
+N9->         11
+N64->        100
+N32->        40
+LEFTTWO->    002000000000
+LEFTTHREE->  003000000000
+RIGHTFOUR->  773000000000
+CAPTURE->    0
+SAVEA->      0
+KEY->        0
+OLDKEY->     0
+GLYPHPTR->   0
+XMIN->       0
+XMAX->       0
+YMIN->       0
+YMAX->       0
+WIDTH->      0
+HEIGHT->     0
+SPAN->       0
+PADX->       0
+PADY->       0
+CELL->       0
+COL->        0
+ROW->        0
+FCOL->       0
+FROW->       0
+FINDEX->     0
+WPTR->       0
+SUM->        0
+BEST->       0

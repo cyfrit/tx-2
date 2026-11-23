@@ -151,6 +151,7 @@ export class TapePanel {
     return this.reference;
   }
   async mount(bytes, name) {
+    await this.onLibraryLoad?.({}, false);
     this.mounted = bytes; this.mountedName = name;
     this.readerName.textContent = name;
     await this.machine.mountTape(bytes);

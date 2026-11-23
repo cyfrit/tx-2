@@ -24,6 +24,14 @@ make browser
 
 For **Inchworm · 1958**, select **Load and start** in the same tape library. The program copies itself through core memory without drawing to the CRT. Watch the octal **P** (program counter) in the console header, or use **STEP** to follow individual instructions.
 
+### Handwritten digits
+
+In **Paper tape**, choose **Handwritten Digits · Neural network → Load and start**. Wait for the dot grid to appear, then hold and drag on the CRT to write a single digit. Lift the pen between strokes. Press **Enter** (or **Recognize**) to draw the predicted digit on the right side of the CRT. Press **Delete** (or **Clear**) before writing another digit. The on-screen buttons also work on touch devices.
+
+The TX-2 program samples the light pen through sequence 55 and stores a 16×16 bitmap in core. It fits the occupied area into an 8×8 grid, then runs a **64 → 32 → 10** integer neural network with a ReLU hidden layer. The quantized model scored **93.61%** on the official MNIST test set after the same grid normalization; that benchmark is not a guarantee for individual light-pen strokes.
+
+The ready-to-boot tape is `programs/digits.tape`. To verify native pen input, inference and CRT output, run `make digits-check`. To regenerate the tape, run `make digits` with the upstream `tx2m4as` built (or set `TX2_ASSEMBLER` to its path). Offline retraining is optional: `python3 tools/train_digits.py` needs NumPy and PyTorch and downloads the [MNIST dataset](https://huggingface.co/datasets/ylecun/mnist) archives.
+
 ## Scope
 
 The model covers the 36-bit instruction set, sequence control, memory, and device I/O. The browser console exposes the CRT, light pen, paper tape, and Lincoln Writer, among other peripherals. The recreation targets functional behavior. Pulse-level timing and FPGA deployment remain future work.

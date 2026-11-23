@@ -44,7 +44,7 @@ export class Settings {
     page.append(el('fieldset', {}, el('legend', {}, 'Light pen'), el('div', {class: 'grid2'},
       check(s.pen, 'limit', 'Limit pen speed to maintain tracking', penLimit, 'The original tracking cross has a finite tracking speed; observed line drawing occasionally loses tracking at about 3–4 units per 10,000 clocks'),
       field('Speed limit · units per 10,000 clocks', range(s.pen, 'speed', 0.5, 12, 0.5, v => `${v}`, penLimit)),
-      field('Detection radius · display units', range(s.pen, 'radius', 2, 40, 1, v => `${v}`, () => this.machine.cmd(`set radius ${s.pen.radius}`))))));
+      field('Detection radius · display units', range(s.pen, 'radius', 2, 40, 1, v => `${v}`, () => this.machine.cmd(`set radius ${this.scope.penRadius}`))))));
 
     const mech = () => this.applyTiming();
     const profile = el('select', {},
@@ -76,6 +76,6 @@ export class Settings {
     const s = this.settings;
     this.applyTiming();
     this.machine.config({penLimit: s.pen.limit ? s.pen.speed : 0, batchMs: s.timing.batchMs});
-    await this.machine.cmd(`set radius ${s.pen.radius}`);
+    await this.machine.cmd(`set radius ${this.scope.penRadius}`);
   }
 }
