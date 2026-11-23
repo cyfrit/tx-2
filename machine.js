@@ -4,6 +4,7 @@ export class Machine {
     this.worker = new Worker('./worker.js', {type: 'module'});
     this.pending = new Map();
     this.nextId = 0;
+    this.penVersion = 0;
     this.listeners = new Set();
     this.ready = new Promise((resolve, reject) => {
       this.worker.onerror = e => reject(new Error(e.message || 'worker failed'));
@@ -22,7 +23,7 @@ export class Machine {
       this.worker.postMessage({id, cmd: line});
     });
   }
-  pen(x, y, down) { this.worker.postMessage({type: 'pen', x, y, down}); }
+  pen(x, y, down) { this.worker.postMessage({type: 'pen', x, y, down, version: ++this.penVersion}); }
   config(config) { this.worker.postMessage({type: 'config', config}); }
   onState(f) { this.listeners.add(f); }
   mountTape(bytes) {

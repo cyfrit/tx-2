@@ -18,8 +18,15 @@ export const TEMPLATES = {
       [QB(4, 7)]: 'PUNCH', [QB(4, 8)]: 'PLOT', [QB(1, 2)]: 'M:DELCON', [QB(1, 4)]: 'M:DELPTS', [QB(1, 5)]: 'M:DELPIC',
     },
     ink: {x: -128, y: 110},
+    shortcuts: {d: QB(1, 8), c: QB(1, 7), m: QB(1, 6)},
     // Toggle register 377724: INTERLACE = meta bit 4.10, TWINKLE = bit 4.9. Thesis ch. V; listing SQ60A.
     word: 4,
+  },
+  digits: {
+    name: 'Handwritten digits',
+    keys: {[QB(1, 1)]: 'RECOGNIZE', [QB(1, 2)]: 'CLEAR'},
+    shortcuts: {enter: QB(1, 1), delete: QB(1, 2)},
+    scope: {zoom: 1.2, radius: 22, contactOnly: true, output: '60', spotScale: [1.5, 2, 3, 6]},
   },
 };
 
@@ -31,6 +38,8 @@ export class Inputs {
 
     this.templateBox = el('fieldset', {style: 'display:none'});
     page.append(this.templateBox);
+    this.scopeControls = el('div', {class: 'digit-controls', hidden: true});
+    this.scope.overlay.closest('.scope-bay').append(this.scopeControls);
 
     // Pushbutton box
     this.buttons = [];
@@ -98,9 +107,29 @@ export class Inputs {
   setTemplate(id) {
     const t = TEMPLATES[id] || null;
     this.template = t;
+    this.templateId = t ? id : null;
+    for (const tap of this.taps) if (tap.down) this.setBit(tap.bit, false);
+    this.taps = []; this.pending = []; this.model = null;
+    this.scope.setPen(false);
+    this.scope.program = t?.scope || null;
+    this.machine.config({penTrace: id === 'digits'});
+    this.machine.cmd(`set radius ${this.scope.penRadius}`);
+    document.getElementById('pen-toggle').disabled = id === 'digits';
+    this.scopeControls.hidden = id !== 'digits';
     this.buttons.forEach((b, i) => { b.querySelector('.tag')?.remove(); if (t?.keys[i]) b.append(el('span', {class: 'tag'}, t.keys[i])); });
     this.templateBox.style.display = t ? '' : 'none';
     if (!t) return;
+    if (id === 'digits') {
+      const controls = () => [
+        el('button', {class: 'key', onclick: () => this.whenPenArrives(() => this.tap(QB(1, 1), 80000))}, 'Recognize · Enter'),
+        el('button', {class: 'key dark', onclick: () => this.whenPenArrives(() => this.tap(QB(1, 2), 80000))}, 'Clear · Delete'),
+      ];
+      const instructions = 'Wait for the grid, then hold and drag to write one digit. Lift between strokes. Recognize shows the result on the right.';
+      this.scopeControls.replaceChildren(el('div', {class: 'row'}, controls()), el('div', {class: 'hint'}, instructions));
+      this.templateBox.replaceChildren(el('legend', {}, `Program template · ${t.name}`),
+        el('div', {class: 'row'}, controls()), el('div', {class: 'hint'}, instructions));
+      return;
+    }
     const c = this.settings.console, w = t.word;
     const interlace = el('input', {type: 'checkbox'}), twinkle = el('input', {type: 'checkbox'});
     const sync = () => { interlace.checked = !!(c.tmeta >> w & 1); twinkle.checked = !!bit36(c.toggles[w], 35); };
@@ -142,10 +171,12 @@ export class Inputs {
       else if (t.down && s.cycles >= t.start + t.clocks) { this.setBit(t.bit, false); t.down = false; t.up = s.cycles; }
       else if (t.up !== null && s.cycles >= t.up + 40000) this.taps.shift();
     }
-    if (this.pending.length && cursor.lag < 1) this.pending.shift()();
-    if (this.template && this.model && (!this.lastModel || performance.now() - this.lastModel > 1000)) {
+    const digitReady = cursor.ready && !this.scope.pen.active && cursor.version === this.machine.penVersion && !cursor.down && !cursor.pending;
+    if (this.pending.length && cursor.lag < 1 && (this.templateId !== 'digits' || digitReady)) this.pending.shift()();
+    if (this.templateId === 'sketchpad' && this.model && (!this.lastModel || performance.now() - this.lastModel > 1000)) {
       this.lastModel = performance.now();
-      this.modelCounts().then(([p, l]) => { this.model.textContent = `${p} / ${l}`; this.counts = {points: p, lines: l}; });
+      const model = this.model;
+      this.modelCounts().then(([p, l]) => { if (this.model === model) { model.textContent = `${p} / ${l}`; this.counts = {points: p, lines: l}; } });
     }
   }
 }

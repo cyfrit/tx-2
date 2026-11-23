@@ -20,6 +20,17 @@
     "sha256": "ef72051f16b1ecd229b168e38fc10d856d2878900e200e1339ec1808395b071a"
   },
   {
+    "id": "digits",
+    "title": "Handwritten Digits · Neural network",
+    "tsp": "377750",
+    "kind": "Modern program",
+    "template": "digits",
+    "note": "Wait for the dot grid, then hold and drag the light pen to write one digit. Press Enter to recognize or Delete to clear. The TX-2 runs a 64 → 32 → 10 neural network and draws the result at the right of the CRT.",
+    "file": "tapes/digits.tape",
+    "lines": 18906,
+    "sha256": "99ed6d74397f729d989faf207748bfd11fdcdfe615f44f515d3dd79e9e76bbc6"
+  },
+  {
     "id": "sketchpad",
     "title": "Sketchpad · 1963",
     "tsp": "377750",

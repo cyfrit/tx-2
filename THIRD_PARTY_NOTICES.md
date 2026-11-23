@@ -13,6 +13,10 @@ The browser's Lincoln Writer character mapping in `web/lw.js` follows the upstre
 - Scans, crops and other reproductions, including extracted text and OCR in `references/`, retain their source-specific terms. The Computer History Museum's archive states that commercial use of its content requires written permission. For other archival items, consult the source record for each item. The MIT license covers the project's own analysis and tools for working with these materials. [Computer History Museum archive notice](https://github.com/computerhistory/Historical-Highlights-Documents-Repository#readme)
 - The plugboard words in `rtl/tx2_memory.v` and the standard reader leader used by the example tapes reproduce historical TX-2 boot listings from the *TX-2 Users Handbook*. The reader leader comes from the upstream assembler's implementation. [Historical reader leader listing](https://archive.org/details/tx-2-users-handbook-nov-63/page/n150/mode/1up)
 
+## Handwritten digits model
+
+The DIGITS classifier was trained on the [MNIST handwritten digit database](https://huggingface.co/datasets/ylecun/mnist) by Yann LeCun, Corinna Cortes, and Christopher J. C. Burges, plus synthetic pen strokes. The repository and paper tape contain quantized model parameters, not the MNIST images.
+
 ## Compiled browser and native builds
 
 The browser and native simulator link the Verilator runtime, which is dual-licensed under LGPL-3.0-only or Artistic-2.0. Browser builds also include Emscripten-generated JavaScript and code from the SDK's linked system libraries. When distributing compiled artifacts, retain the applicable license texts and notices for the runtime and libraries included by the actual toolchain. [Verilator licensing](https://verilator.org/guide/latest/copyright.html) · [Emscripten licensing](https://emscripten.org/docs/introducing_emscripten/emscripten_license.html)
